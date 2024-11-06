@@ -122,8 +122,7 @@ const UploadService = () => {
         <label htmlFor="file-upload" className="block text-xl font-semibold">
           Перетащите файлы или кликните для загрузки
         </label>
-      </div>
-        <ul className="mt-4 items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <ul className="mt-4 items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
           <div className="flex items-center ps-3">
             <input
@@ -157,8 +156,8 @@ const UploadService = () => {
           </div>
         </li>
       </ul>
+      </div>
      
-
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Ваши Файлы:</h2>
