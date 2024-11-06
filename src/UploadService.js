@@ -109,23 +109,7 @@ const UploadService = () => {
       </header>
 
       <h1 className="text-white text-4xl sm:text-5xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>
-                   <label className="mt-4 flex items-center">
-        <input
-          type="checkbox"
-          className="mr-2"
-        />
-        <span>Сжать изображение перед загрузкой</span>
-      </label>
-
-      <label className="mt-4 flex items-center">
-        <input
-          type="checkbox"
-          className="mr-2"
-        />
-        <span>Шифровать файлы перед загрузкой</span>
-      </label>
-      <div
-        className="border-dashed border-4 border-white p-10 w-full max-w-lg text-center cursor-pointer bg-gray-900 rounded-lg shadow-lg hover:opacity-75 transition"
+      <div className="border-dashed border-4 border-white p-10 w-full max-w-lg text-center cursor-pointer bg-gray-900 rounded-lg shadow-lg hover:opacity-75 transition"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
@@ -140,7 +124,14 @@ const UploadService = () => {
           Перетащите файлы или кликните для загрузки
         </label>
       </div>
-
+            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+    <input id="bordered-checkbox-1" type="checkbox" value="" name="bordered-checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+    <label for="bordered-checkbox-1" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Сжать изображение перед загрузкой</label>
+</div>
+<div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+    <input checked id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+    <label for="bordered-checkbox-2" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Шифровать файлы перед загрузкой</label>
+</div>
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Ваши Файлы:</h2>
