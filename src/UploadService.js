@@ -172,17 +172,9 @@ const UploadService = () => {
                   {file.name}
                 </span>
               </div>
-
             ))}
           </div>
         </div>
-      <p className="ms-auto text-xs text-gray-500 dark:text-gray-400">
-        Remember, contributions to this topic should follow our{' '}
-        <a href="#" className="text-blue-600 dark:text-blue-500 hover:underline">
-          Community Guidelines
-        </a>.
-      </p>
- 
       )}
 
       <button
