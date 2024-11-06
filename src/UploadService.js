@@ -180,8 +180,8 @@ const UploadService = () => {
           <textarea
             id="comment"
             rows="4"
-            className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-            placeholder="Write a comment..."
+            className="mt-3 w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+            placeholder="Комментарий..."
             required
           ></textarea>
         </div>
