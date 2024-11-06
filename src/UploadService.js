@@ -216,7 +216,7 @@ const UploadService = () => {
         </div>
       )}
         <div>
-      <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white">Choose technology:</h3>
+      <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white"> </h3>
       <ul className="grid w-full gap-6 md:grid-cols-3">
         <li>
           <input type="checkbox" id="react-option" className="hidden peer" required />
@@ -225,17 +225,17 @@ const UploadService = () => {
             className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <div className="block">
-              <svg
-                className="mb-2 w-7 h-7 text-sky-500"
+                            <svg
+                className="mb-2 w-7 h-7 text-green-400"
                 fill="currentColor"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
+                viewBox="0 0 448 512"
               >
-                <path d="M418.2 177.2c-5.4-1.8-10.8-3.5-16.2-5.1..."></path>
+                <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
-              <div className="w-full text-lg font-semibold">React Js</div>
-              <div className="w-full text-sm">A JavaScript library for building user interfaces.</div>
+              <div className="w-full text-lg font-semibold">Рекламный Блок</div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.xyz</div>
             </div>
           </label>
         </li>
@@ -256,8 +256,8 @@ const UploadService = () => {
               >
                 <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
-              <div className="w-full text-lg font-semibold">Vue Js</div>
-              <div className="w-full text-sm">Vue.js is a model–view front end JavaScript framework.</div>
+              <div className="w-full text-lg font-semibold">Рекламный Блок</div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.xyz</div>
             </div>
           </label>
         </li>
@@ -269,17 +269,17 @@ const UploadService = () => {
             className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <div className="block">
-              <svg
-                className="mb-2 w-7 h-7 text-red-600"
+                  <svg
+                className="mb-2 w-7 h-7 text-green-400"
                 fill="currentColor"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
               >
-                <path d="M185.7 268.1h76.2l-38.1-91.6-38.1 91.6z..."></path>
+                <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
-              <div className="w-full text-lg font-semibold">Angular</div>
-              <div className="w-full text-sm">A TypeScript-based web application framework.</div>
+               <div className="w-full text-lg font-semibold">Рекламный Блок</div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.xyz</div>
             </div>
           </label>
         </li>
