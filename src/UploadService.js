@@ -10,6 +10,9 @@ const UploadService = () => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploadedUrls, setUploadedUrls] = useState([]);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [comment, setComment] = useState('');
 
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
@@ -163,32 +166,52 @@ const UploadService = () => {
           <h2 className="text-2xl font-bold mb-4">Ваши Файлы:</h2>
           <div className="grid grid-cols-2 gap-4">
             {files.map((file, index) => (
-              <div key={index} className="relative">
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt="Preview"
-                  className="w-full h-32 object-cover rounded-lg"
-                />
-                <span className="absolute top-0 right-0 bg-red-600 text-white text-xs px-2 py-1 rounded-full">
-                  {file.name}
-                </span>
-              </div>
+    <div key={index} className="relative">
+              <img
+                src={URL.createObjectURL(file)}
+                alt="Preview"
+                className="w-full h-32 object-cover rounded-lg cursor-pointer"
+                onClick={() => {
+                  setSelectedImage(URL.createObjectURL(file));
+                  setIsPopupOpen(true);
+                }}
+              />
+              <span className="absolute top-0 right-0 bg-red-600 text-white text-xs px-2 py-1 rounded-full">
+                {file.name}
+              </span>
+            </div>
             ))}
           </div>
           <div className="mt-3 w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
         <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
           <label htmlFor="comment" className="sr-only">Your comment</label>
           <textarea
-            id="comment"
-            rows="4"
-            className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-            placeholder="Комментарий..."
-            required
-          ></textarea>
+          id="comment"
+          rows="4"
+          className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+          placeholder="Комментарий..."
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        ></textarea>
         </div>
              <div class="text-xs flex items-center justify-between px-3 py-2 border-t dark:border-gray-600">
          * Комментарии будут добавлены ко всем загружаемым файлам
                   </div>  
+             {/* Popup for previewing image and comment */}
+      {isPopupOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white p-5 rounded-lg max-w-sm">
+            <button
+              onClick={() => setIsPopupOpen(false)}
+              className="text-red-600 float-right"
+            >
+              X
+            </button>
+            <img src={selectedImage} alt="Selected" className="w-full h-auto rounded" />
+            <p className="mt-4 text-gray-700">{comment}</p>
+          </div>
+        </div>
+      )}
       </div>
         </div>
       )}
