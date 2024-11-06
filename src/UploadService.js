@@ -200,7 +200,7 @@ const UploadService = () => {
              {/* Popup for previewing image and comment */}
       {isPopupOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="bg-white p-5 rounded-lg max-w-lg">
+          <div className="bg-white p-5 rounded-lg max-w-xl">
             <button
               onClick={() => setIsPopupOpen(false)}
               className="text-red-600 float-right"
