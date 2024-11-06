@@ -83,7 +83,7 @@ const UploadService = () => {
   return (
     <div className="flex flex-col items-center p-10 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
       {/* Header Section */}
-      <header className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mb-6">
+      <header className="w-full flex md:justify-left justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mb-6">
         <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full ">
         <div className="flex flex-[0.5] justify-дуае items-center">
           {/* "PhotoBunker" as a button-like text */}
