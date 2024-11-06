@@ -124,7 +124,7 @@ const UploadService = () => {
           Перетащите файлы или кликните для загрузки
         </label>
       </div>
-        <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <ul className="mt-4 items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
           <div className="flex items-center ps-3">
             <input
@@ -216,6 +216,7 @@ const UploadService = () => {
 
         </div>
       )}
+        
    <section className="mt-20 w-full flex flex-col items-center bg-gray-800 p-10 text-white my-5 items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl mt-10">
         <h2 className="text-2xl font-bold mb-4 text-gradient">Почему IPFS?</h2>
         <p className="text-white text-base text-center mx-2 text-center mb-4 text-white py-2 text-gradient">
