@@ -124,38 +124,43 @@ const UploadService = () => {
           Перетащите файлы или кликните для загрузки
         </label>
       </div>
-           <div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-  <input
-    id="bordered-checkbox-1"
-    type="checkbox"
-    value=""
-    name="bordered-checkbox"
-    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-  />
-  <label
-    htmlFor="bordered-checkbox-1"
-    className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-  >
-    Сжать изображение перед загрузкой
-  </label>
-</div>
-
-<div className="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-  <input
-    id="bordered-checkbox-2"
-    type="checkbox"
-    value=""
-    name="bordered-checkbox"
-    defaultChecked
-    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-  />
-  <label
-    htmlFor="bordered-checkbox-2"
-    className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-  >
-    Шифровать файлы перед загрузкой
-  </label>
-</div>
+          <div>
+      <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Identification</h3>
+      <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+          <div className="flex items-center ps-3">
+            <input
+              id="vue-checkbox-list"
+              type="checkbox"
+              value="vue"
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label
+              htmlFor="vue-checkbox-list"
+              className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Vue JS
+            </label>
+          </div>
+        </li>
+        <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+          <div className="flex items-center ps-3">
+            <input
+              id="react-checkbox-list"
+              type="checkbox"
+              value="react"
+              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label
+              htmlFor="react-checkbox-list"
+              className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              React
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>  
 
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
