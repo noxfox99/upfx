@@ -252,6 +252,51 @@ const UploadService = () => {
 
         </div>
       )}
+        <div className="w-full flex flex-col items-center bg-gray-900 py-10 px-4 text-white my-10 rounded-lg shadow-lg max-w-screen-lg mx-auto">
+  <h2 className="text-2xl font-bold mb-6 text-center">Почему выбрать наш сервис?</h2>
+  <p className="text-md text-center mb-8">
+    Наш фотохостинг обеспечивает полную анонимность, безопасность и доступность ваших данных благодаря передовым технологиям хранения.
+  </p>
+
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full px-4">
+    
+    {/* Anonymity Section */}
+    <div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
+      <svg className="w-10 h-10 text-purple-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4h16v5H4zM4 15h16v5H4zM4 9a8 8 0 1116 0v1H4z"></path>
+      </svg>
+      <h3 className="text-lg font-semibold">Полная Анонимность</h3>
+      <p className="text-sm mt-2 text-gray-400">
+        Мы не собираем личные данные и не отслеживаем активность. Ваши файлы защищены и доступны только вам.
+      </p>
+    </div>
+
+    {/* Secure Storage Section */}
+    <div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
+      <svg className="w-10 h-10 text-green-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 9l9-7 9 7-9 7-9-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10v8a1 1 0 001 1h3m10 0h3a1 1 0 001-1v-8"></path>
+      </svg>
+      <h3 className="text-lg font-semibold">Распределенное Хранилище</h3>
+      <p className="text-sm mt-2 text-gray-400">
+        Ваши файлы надежно хранятся в сети IPFS, обеспечивая высокий уровень безопасности и доступности.
+      </p>
+    </div>
+
+    {/* 24/7 Uptime Section */}
+    <div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
+      <svg className="w-10 h-10 text-blue-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-3.7 0-6.7 3-6.7 6.7S8.3 21.3 12 21.3s6.7-3 6.7-6.7c0-2.9-1.8-5.5-4.5-6.4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 15l3 3 3-3"></path>
+      </svg>
+      <h3 className="text-lg font-semibold">Доступность 24/7</h3>
+      <p className="text-sm mt-2 text-gray-400">
+        Мы обеспечиваем круглосуточную доступность сервиса, чтобы ваши файлы были всегда под рукой.
+      </p>
+    </div>
+  </div>
+</div>
+
         <div>
       <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white"> </h3>
       <ul className="grid w-full gap-6 md:grid-cols-3">
