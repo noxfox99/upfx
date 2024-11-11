@@ -182,9 +182,9 @@ const UploadService = () => {
             </div>
             ))}
           </div>
-                         {/* Hint Section */}
+{/* Hint Section */}
 <div className="flex flex-col items-center mt-4">
-  <p className="text-xs text-gray-500 dark:text-gray-400">
+  <p className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 shadow-lg shadow-orange-500/50">
     Метаданные были успешно очищены при загрузке. Ваши файлы безопасны и защищены от лишней информации.
   </p>
 </div>
