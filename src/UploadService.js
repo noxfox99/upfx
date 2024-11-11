@@ -183,6 +183,12 @@ const UploadService = () => {
             ))}
           </div>
           <div className="mt-3 w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+              {/* Hint Section */}
+<div className="flex flex-col items-center mt-4">
+  <p className="text-xs text-gray-500 dark:text-gray-400">
+    Метаданные были успешно очищены при загрузке. Ваши файлы безопасны и защищены от лишней информации.
+  </p>
+</div>
         <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
           <label htmlFor="comment" className="sr-only">Your comment</label>
           <textarea
@@ -259,7 +265,17 @@ const UploadService = () => {
   </p>
 
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full px-4">
-    
+    {/* Privacy Section */}
+<div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
+  <svg className="w-10 h-10 text-green-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354V19m7-7H5m11-5l-3-3-3 3M6 6h12m-2 10l3 3-3-3m-10 3l3-3m0 0l-3 3"></path>
+  </svg>
+  <h3 className="text-lg font-semibold">Приватность и Безопасность</h3>
+  <p className="text-sm mt-2 text-gray-400">
+    Мы удаляем метаданные из файлов для защиты вашей приватности. Это предотвращает возможность передачи личной информации, такой как местоположение, время создания и другие данные, которые могут быть встроены в файлы.
+  </p>
+</div>
+
     {/* Anonymity Section */}
     <div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
       <svg className="w-10 h-10 text-purple-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
