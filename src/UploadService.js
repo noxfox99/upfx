@@ -182,13 +182,14 @@ const UploadService = () => {
             </div>
             ))}
           </div>
-          <div className="mt-3 w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-              {/* Hint Section */}
+                         {/* Hint Section */}
 <div className="flex flex-col items-center mt-4">
   <p className="text-xs text-gray-500 dark:text-gray-400">
     Метаданные были успешно очищены при загрузке. Ваши файлы безопасны и защищены от лишней информации.
   </p>
 </div>
+          <div className="mt-3 w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+   
         <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
           <label htmlFor="comment" className="sr-only">Your comment</label>
           <textarea
