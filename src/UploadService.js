@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { PinataSDK } from "pinata";
+import { QRCodeCanvas } from 'qrcode.react'; // Import QR code component
 
 
 const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your Infura Project ID
@@ -49,7 +50,12 @@ const UploadService = () => {
   const handleDragOver = (event) => {
     event.preventDefault();
   };
-
+  
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText(galleryJsonUrl);
+    alert('URL скопирован в буфер обмена!');
+  };
+  
 const handleUpload = async () => {
     setLoading(true);
     const imageUrls = [];
@@ -267,6 +273,30 @@ const handleUpload = async () => {
     </div>
   </div>
 )}
+ {/* QR Code and Link Box */}
+      {galleryJsonUrl && (
+        <div className="mt-6 w-full max-w-lg bg-gray-800 p-4 rounded-lg shadow-lg flex items-center space-x-4">
+          {/* QR Code Section */}
+          <QRCodeCanvas value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`} className="w-24 h-24" />
+
+          {/* Link and Copy Button Section */}
+          <div className="flex-1">
+            <textarea
+              value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
+              readOnly
+              className="w-full p-2 mb-2 text-sm text-gray-900 bg-white rounded resize-none dark:bg-gray-800 dark:text-gray-300"
+            />
+            <button
+              onClick={handleCopyUrl}
+              className="mt-2 bg-blue-500 text-white font-semibold py-1 px-4 rounded hover:bg-blue-600"
+            >
+              Copy URL
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* [Remaining code, including upload button and footer] */}
       {uploadedUrls.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Загруженные Файлы:</h2>
