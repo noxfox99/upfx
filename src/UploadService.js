@@ -19,7 +19,9 @@ const UploadService = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState('');
   const [galleryJsonUrl, setGalleryJsonUrl] = useState(null); // URL for the gallery JSON file
-
+ const [expirationTime, setExpirationTime] = useState(2); // Default to 2
+  const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
+  
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
     if (selectedFiles.length + files.length <= 10) {
@@ -46,7 +48,14 @@ const UploadService = () => {
       alert('You can only upload a maximum of 10 files.');
     }
   };
+  
+ const handleExpirationChange = (event) => {
+    setExpirationTime(event.target.value);
+  };
 
+  const handleUnitChange = (event) => {
+    setExpirationUnit(event.target.value);
+  };
     const handleCopyUrl = () => {
     navigator.clipboard.writeText(galleryJsonUrl);
     alert("Ссылка скопирована в буфер обмена!");
