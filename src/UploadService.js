@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { PinataSDK } from "pinata";
 
 
 const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your Infura Project ID
-const PINATA_SECRET_API_KEY = 'a533bb896ff441f69c94dee9fdb76fbb';  // Replace with your Infura Project Secret
+const PINATA_SECRET_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI4ZWY3N2NlNC1lYjRkLTQ3NmQtYjc3ZC0yZjQwMWQwZTdhMmMiLCJlbWFpbCI6InNxYWltZXNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjY1YmJiYmI3YzJjMjE1NGI3YzIwIiwic2NvcGVkS2V5U2VjcmV0IjoiZTdjZDA4ZTZkZGQyNGM4NzEyZTgwZmIzMjgzNDU4MjBlZTYxNWEwNTFlNjViMTViZTdlMTgwNDFmZTczMmM2YyIsImV4cCI6MTc2MjQ1NTExM30.PC3g9CarhHwxVynKXoqQwsqC9qZoEEKZdm2EY0L7HZk';  // Replace with your Infura Project Secret
+const pinata = new PinataSDK({
+  pinataJwt: PINATA_SECRET_API_KEY,
+  pinataGateway: "https://chocolate-internal-scorpion-907.mypinata.cloud/",
+});
 
 const UploadService = () => {
   const [files, setFiles] = useState([]);
@@ -13,6 +17,7 @@ const UploadService = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState('');
+  const [galleryJsonUrl, setGalleryJsonUrl] = useState(null); // URL for the gallery JSON file
 
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
@@ -23,6 +28,14 @@ const UploadService = () => {
     }
   };
 
+   const createGalleryJson = (imageUrls) => {
+    return JSON.stringify({
+      title: "Gallery",
+      description: "This is a gallery of uploaded images",
+      images: imageUrls.map(url => ({ url })),
+    }, null, 2);
+  };
+  
   const handleDrop = (event) => {
     event.preventDefault();
     const droppedFiles = Array.from(event.dataTransfer.files);
@@ -37,40 +50,39 @@ const UploadService = () => {
     event.preventDefault();
   };
 
-  const handleUpload = async () => {
+const handleUpload = async () => {
     setLoading(true);
-    const urls = [];
+    const imageUrls = [];
 
     try {
-      const promises = files.map(async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-
-        const metadata = JSON.stringify({
-          name: file.name,
-          keyvalues: {
-            description: 'Uploaded with Pinata'
-          }
-        });
-        formData.append('pinataMetadata', metadata);
-
-        const response = await axios.post(
-          'https://api.pinata.cloud/pinning/pinFileToIPFS',
-          formData,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              pinata_api_key: PINATA_API_KEY,
-              pinata_secret_api_key: PINATA_SECRET_API_KEY,
-            },
-          }
-        );
-
-        urls.push(`https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`);
+      // Step 1: Upload each image and get its URL
+      const uploadPromises = files.map(async (file) => {
+        const response = await pinata.upload.file(file);
+        imageUrls.push(`https://chocolate-internal-scorpion-907.mypinata.cloud/files/${response.cid}`);
       });
+      await Promise.all(uploadPromises);
 
-      await Promise.all(promises);
-      setUploadedUrls(urls);
+      // Step 2: Create JSON content for the gallery
+      const jsonContent = createGalleryJson(imageUrls);
+      const jsonBlob = new Blob([jsonContent], { type: 'application/json' });
+      const jsonFile = new File([jsonBlob], 'gallery.json', { type: 'application/json' });
+
+      // Step 3: Upload JSON file to IPFS
+      const jsonResponse = await pinata.upload.file(jsonFile);
+      console.log('test')
+            console.log(jsonResponse.cid)
+
+   
+    //const datax = await pinata.gateways.get(jsonResponse.cid);
+    //console.log(datax)
+
+    setGalleryJsonUrl(`https://chocolate-internal-scorpion-907.mypinata.cloud/files/${jsonResponse.cid}`);
+    //console.log(datax)
+
+  
+
+      
+      console.log(jsonResponse.cid)
     } catch (error) {
       console.error('Error uploading files:', error);
       alert('Failed to upload files.');
