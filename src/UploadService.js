@@ -193,30 +193,7 @@ const handleUpload = async () => {
         </li>
       </ul>
     <div className="flex flex-col items-center p-10 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
-      {/* Expires Section */}
-      <div className="mb-6 w-full max-w-md">
-        <label htmlFor="expires" className="block text-sm font-medium text-gray-300 mb-2">Срок хранения</label>
-        <div className="flex space-x-2 items-center">
-          <input
-            type="number"
-            min="1"
-            value={expirationTime}
-            onChange={handleExpirationChange}
-            className="w-16 p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded dark:bg-gray-700 dark:text-white"
-          />
-          <select
-            value={expirationUnit}
-            onChange={handleUnitChange}
-            className="p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded dark:bg-gray-700 dark:text-white"
-          >
-            <option value="h">Часы</option>
-            <option value="d">Дни</option>
-            <option value="w">Недели</option>
-            <option value="M">Месяцы</option>
-            <option value="y">Годы</option>
-          </select>
-        </div>
-      </div>
+   
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Ваши Файлы:</h2>
