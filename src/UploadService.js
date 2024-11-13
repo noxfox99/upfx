@@ -207,7 +207,7 @@ const handleUpload = async () => {
 {/* Hint Section */}
 {/* Hint Section */}
 <div className="flex flex-col items-center mt-6">
-  <p className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 shadow-lg shadow-orange-500/50 p-3 mx-4 rounded-md">
+  <p className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-yellow-500 shadow-lg shadow-green-500/50 p-3 mx-4 rounded-md">
     Метаданные были успешно очищены при загрузке. Ваши файлы безопасны и защищены от лишней информации.
   </p>
 </div>
@@ -263,7 +263,7 @@ const handleUpload = async () => {
         </div>
       )}
 {galleryJsonUrl && (
-  <div className="mt-6 w-full max-w-lg">
+  <div className="mt-6 w-full max-w-lg items-center justify-center">
     <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке:</h2>
   </div>
 )}
