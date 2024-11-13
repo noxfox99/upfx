@@ -260,17 +260,7 @@ const handleUpload = async () => {
       )}
 {galleryJsonUrl && (
   <div className="mt-6 w-full max-w-lg">
-    <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке:</h2>
-    <div className="text-center mb-4">
-      <a
-        href={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-400 hover:underline"
-      >
-        Открыть галерею
-      </a>
-    </div>
+    <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке</h2>
   </div>
 )}
  {/* QR Code and Link Box */}
