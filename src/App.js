@@ -1,13 +1,19 @@
 // src/App.js
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UploadService from './UploadService';
+import GalleryPage from './GalleryPage';
 
-const App = () => {
+
+function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <UploadService />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UploadService />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
