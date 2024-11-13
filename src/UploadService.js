@@ -160,64 +160,69 @@ const handleUpload = async () => {
       </div>
    
 {/* Expires Section */}
-{/* Expires Section */}
-<div className="flex items-center space-x-3 p-4 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg w-full max-w-md">
-  <label htmlFor="expires" className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-    Срок хранения:
-  </label>
-  <input
-    type="number"
-    min="1"
-    value={expirationTime}
-    onChange={handleExpirationChange}
-    className="w-20 p-2 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
-  />
-  <select
-    value={expirationUnit}
-    onChange={handleUnitChange}
-    className="p-2 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
-  >
-    <option value="h">Часы</option>
-    <option value="d">Дни</option>
-    <option value="w">Недели</option>
-    <option value="M">Месяцы</option>
-    <option value="y">Годы</option>
-  </select>
-        <ul className="mt-4 items-center w-full max-w-lg text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-        <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-          <div className="flex items-center ps-3">
-            <input
-              id="vue-checkbox-list"
-              type="checkbox"
-              value="vue"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              htmlFor="vue-checkbox-list"
-              className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Продвинутое шифрование
-            </label>
-          </div>
-        </li>
-        <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-          <div className="flex items-center ps-3">
-            <input
-              id="react-checkbox-list"
-              type="checkbox"
-              value="react"
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-            />
-            <label
-              htmlFor="react-checkbox-list"
-              className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Сжать и удалить Metadata
-            </label>
-          </div>
-        </li>
-      </ul>
+{/* Stylish Settings Box */}
+<div className="p-6 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-md w-full space-y-4">
+  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Настройки</h2>
+  
+  {/* Expires Section */}
+  <div className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
+    <label htmlFor="expires" className="text-lg font-medium text-gray-700 dark:text-gray-300">
+      Срок хранения:
+    </label>
+    <input
+      type="number"
+      min="1"
+      value={expirationTime}
+      onChange={handleExpirationChange}
+      className="w-20 p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
+    />
+    <select
+      value={expirationUnit}
+      onChange={handleUnitChange}
+      className="p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
+    >
+      <option value="h">Часы</option>
+      <option value="d">Дни</option>
+      <option value="w">Недели</option>
+      <option value="M">Месяцы</option>
+      <option value="y">Годы</option>
+    </select>
+  </div>
+  
+  {/* Additional Settings */}
+  <div className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl p-4 shadow-md">
+    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Дополнительные настройки</h3>
+    <ul className="space-y-2">
+      <li className="flex items-center">
+        <input
+          id="advanced-encryption"
+          type="checkbox"
+          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+        />
+        <label
+          htmlFor="advanced-encryption"
+          className="ml-3 text-sm font-medium text-gray-800 dark:text-gray-300"
+        >
+          Продвинутое шифрование
+        </label>
+      </li>
+      <li className="flex items-center">
+        <input
+          id="remove-metadata"
+          type="checkbox"
+          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+        />
+        <label
+          htmlFor="remove-metadata"
+          className="ml-3 text-sm font-medium text-gray-800 dark:text-gray-300"
+        >
+          Сжать и удалить Metadata
+        </label>
+      </li>
+    </ul>
+  </div>
 </div>
+
 
 
       {files.length > 0 && (
