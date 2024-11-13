@@ -82,7 +82,7 @@ const handleUpload = async () => {
     //const datax = await pinata.gateways.get(jsonResponse.cid);
     //console.log(datax)
 
-    setGalleryJsonUrl(`https://chocolate-internal-scorpion-907.mypinata.cloud/files/${jsonResponse.cid}`);
+    setGalleryJsonUrl(`${jsonResponse.cid}`);
     //console.log(datax)
 
   
