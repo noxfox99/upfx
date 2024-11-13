@@ -19,7 +19,9 @@ const UploadService = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState('');
   const [galleryJsonUrl, setGalleryJsonUrl] = useState(null); // URL for the gallery JSON file
-
+  const [expirationTime, setExpirationTime] = useState(2); // Default to 2
+  const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
+  
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
     if (selectedFiles.length + files.length <= 10) {
@@ -50,7 +52,14 @@ const UploadService = () => {
   const handleDragOver = (event) => {
     event.preventDefault();
   };
-  
+
+    const handleExpirationChange = (event) => {
+    setExpirationTime(event.target.value);
+  };
+
+  const handleUnitChange = (event) => {
+    setExpirationUnit(event.target.value);
+  };
   const handleCopyUrl = () => {
     navigator.clipboard.writeText(galleryJsonUrl);
     alert('URL скопирован в буфер обмена!');
@@ -183,6 +192,31 @@ const handleUpload = async () => {
           </div>
         </li>
       </ul>
+    <div className="flex flex-col items-center p-10 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
+      {/* Expires Section */}
+      <div className="mb-6 w-full max-w-md">
+        <label htmlFor="expires" className="block text-sm font-medium text-gray-300 mb-2">Срок хранения</label>
+        <div className="flex space-x-2 items-center">
+          <input
+            type="number"
+            min="1"
+            value={expirationTime}
+            onChange={handleExpirationChange}
+            className="w-16 p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded dark:bg-gray-700 dark:text-white"
+          />
+          <select
+            value={expirationUnit}
+            onChange={handleUnitChange}
+            className="p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded dark:bg-gray-700 dark:text-white"
+          >
+            <option value="h">Часы</option>
+            <option value="d">Дни</option>
+            <option value="w">Недели</option>
+            <option value="M">Месяцы</option>
+            <option value="y">Годы</option>
+          </select>
+        </div>
+      </div>
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Ваши Файлы:</h2>
@@ -207,7 +241,7 @@ const handleUpload = async () => {
 {/* Hint Section */}
 {/* Hint Section */}
 <div className="flex flex-col items-center mt-6">
-  <p className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 shadow-lg shadow-orange-500/50 p-3 mx-4 rounded-md">
+  <p className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-500 shadow-lg shadow-green-500/50 p-3 mx-4 rounded-md">
     Метаданные были успешно очищены при загрузке. Ваши файлы безопасны и защищены от лишней информации.
   </p>
 </div>
