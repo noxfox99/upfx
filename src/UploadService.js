@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { PinataSDK } from "pinata";
+import QRCode from 'qrcode.react'; // Импортируем компонент QRCode
 
 
 const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your Infura Project ID
@@ -46,6 +47,15 @@ const UploadService = () => {
     }
   };
 
+    const handleCopyUrl = () => {
+    navigator.clipboard.writeText(galleryJsonUrl);
+    alert("Ссылка скопирована в буфер обмена!");
+  };
+
+  const handleDeleteNow = () => {
+    window.location.reload();
+  };
+  
   const handleDragOver = (event) => {
     event.preventDefault();
   };
@@ -255,18 +265,36 @@ const handleUpload = async () => {
 {galleryJsonUrl && (
   <div className="mt-6 w-full max-w-lg">
     <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке:</h2>
-    <div className="text-center mb-4">
-      <a
-        href={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-400 hover:underline"
-      >
-        Открыть галерею
-      </a>
-    </div>
   </div>
 )}
+ {galleryJsonUrl && (
+        <div className="flex items-center p-4 mt-6 border border-gray-300 bg-gray-100 rounded-lg shadow-md dark:border-gray-700 dark:bg-gray-800">
+          <div className="mr-4">
+            <QRCode value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`} size={100} />
+          </div>
+          <div className="flex-1">
+            <textarea
+              readOnly
+              value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
+              className="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded resize-none focus:outline-none dark:bg-gray-700 dark:text-white"
+            />
+            <div className="flex mt-2 space-x-2">
+              <button
+                onClick={handleCopyUrl}
+                className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
+              >
+                Скопировать ссылку
+              </button>
+              <button
+                onClick={handleDeleteNow}
+                className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600"
+              >
+                Удалить сейчас
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {uploadedUrls.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Загруженные Файлы:</h2>
