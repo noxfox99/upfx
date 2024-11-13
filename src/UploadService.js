@@ -55,6 +55,10 @@ const UploadService = () => {
     navigator.clipboard.writeText(galleryJsonUrl);
     alert('URL скопирован в буфер обмена!');
   };
+
+  const handleDeleteNow = () => {
+    window.location.reload();
+  };
   
 const handleUpload = async () => {
     setLoading(true);
@@ -259,7 +263,7 @@ const handleUpload = async () => {
         </div>
       )}
 {galleryJsonUrl && (
-  <div className="mt-6 w-full max-w-lg">
+  <div className="mt-6 w-full max-w-lg  items-center">
     <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке</h2>
   </div>
 )}
@@ -276,12 +280,20 @@ const handleUpload = async () => {
               readOnly
               className="w-full p-2 mb-2 text-sm text-gray-900 bg-white rounded resize-none dark:bg-gray-800 dark:text-gray-300"
             />
-            <button
-              onClick={handleCopyUrl}
-              className="mt-2 bg-blue-500 text-white font-semibold py-1 px-4 rounded hover:bg-blue-600"
-            >
-              Copy URL
-            </button>
+            <div className="flex mt-2 space-x-2">
+              <button
+                onClick={handleCopyUrl}
+                className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
+              >
+                Скопировать ссылку
+              </button>
+              <button
+                onClick={handleDeleteNow}
+                className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600"
+              >
+                Удалить сейчас
+              </button>
+            </div>
           </div>
         </div>
       )}
