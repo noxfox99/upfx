@@ -252,7 +252,21 @@ const handleUpload = async () => {
           <p>Загрузка... Ожидайте</p>
         </div>
       )}
-
+{galleryJsonUrl && (
+  <div className="mt-6 w-full max-w-lg">
+    <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке:</h2>
+    <div className="text-center mb-4">
+      <a
+        href={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-400 hover:underline"
+      >
+        Открыть галерею
+      </a>
+    </div>
+  </div>
+)}
       {uploadedUrls.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Загруженные Файлы:</h2>
