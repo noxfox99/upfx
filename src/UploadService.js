@@ -193,29 +193,31 @@ const handleUpload = async () => {
         </li>
       </ul>
 {/* Expires Section */}
-      <div className="mb-6 w-full max-w-md">
-        <label htmlFor="expires" className="block text-sm font-medium text-gray-300 mb-2">Срок хранения</label>
-        <div className="flex space-x-2 items-center">
-          <input
-            type="number"
-            min="1"
-            value={expirationTime}
-            onChange={handleExpirationChange}
-            className="w-16 p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded dark:bg-gray-700 dark:text-white"
-          />
-          <select
-            value={expirationUnit}
-            onChange={handleUnitChange}
-            className="p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded dark:bg-gray-700 dark:text-white"
-          >
-            <option value="h">Часы</option>
-            <option value="d">Дни</option>
-            <option value="w">Недели</option>
-            <option value="M">Месяцы</option>
-            <option value="y">Годы</option>
-          </select>
-        </div>
-      </div>
+     {/* Expires Section */}
+<div className="mb-6 w-full max-w-md p-6 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg">
+  <label htmlFor="expires" className="block text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">Срок хранения</label>
+  <div className="flex space-x-3 items-center">
+    <input
+      type="number"
+      min="1"
+      value={expirationTime}
+      onChange={handleExpirationChange}
+      className="w-20 p-3 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
+    />
+    <select
+      value={expirationUnit}
+      onChange={handleUnitChange}
+      className="p-3 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
+    >
+      <option value="h">Часы</option>
+      <option value="d">Дни</option>
+      <option value="w">Недели</option>
+      <option value="M">Месяцы</option>
+      <option value="y">Годы</option>
+    </select>
+  </div>
+</div>
+
 
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
