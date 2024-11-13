@@ -158,7 +158,32 @@ const handleUpload = async () => {
           Перетащите файлы или кликните для загрузки
         </label>
       </div>
-     <ul className="mt-4 items-center w-full max-w-lg text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+   
+{/* Expires Section */}
+{/* Expires Section */}
+<div className="flex items-center space-x-3 p-4 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg w-full max-w-md">
+  <label htmlFor="expires" className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+    Срок хранения:
+  </label>
+  <input
+    type="number"
+    min="1"
+    value={expirationTime}
+    onChange={handleExpirationChange}
+    className="w-20 p-2 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
+  />
+  <select
+    value={expirationUnit}
+    onChange={handleUnitChange}
+    className="p-2 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
+  >
+    <option value="h">Часы</option>
+    <option value="d">Дни</option>
+    <option value="w">Недели</option>
+    <option value="M">Месяцы</option>
+    <option value="y">Годы</option>
+  </select>
+        <ul className="mt-4 items-center w-full max-w-lg text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
           <div className="flex items-center ps-3">
             <input
@@ -192,30 +217,6 @@ const handleUpload = async () => {
           </div>
         </li>
       </ul>
-{/* Expires Section */}
-{/* Expires Section */}
-<div className="flex items-center space-x-3 p-4 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg w-full max-w-md">
-  <label htmlFor="expires" className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-    Срок хранения:
-  </label>
-  <input
-    type="number"
-    min="1"
-    value={expirationTime}
-    onChange={handleExpirationChange}
-    className="w-20 p-2 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
-  />
-  <select
-    value={expirationUnit}
-    onChange={handleUnitChange}
-    className="p-2 text-sm font-medium text-gray-900 bg-white border border-gray-400 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-500"
-  >
-    <option value="h">Часы</option>
-    <option value="d">Дни</option>
-    <option value="w">Недели</option>
-    <option value="M">Месяцы</option>
-    <option value="y">Годы</option>
-  </select>
 </div>
 
 
