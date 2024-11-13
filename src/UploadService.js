@@ -161,7 +161,7 @@ const handleUpload = async () => {
    
 {/* Expires Section */}
 {/* Stylish Settings Box */}
-<div className="p-6 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-md w-full space-y-4">
+<div className="mt-2 p-6 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
   <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Настройки</h2>
   
   {/* Expires Section */}
