@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { PinataSDK } from "pinata";
-import { QRCodeCanvas } from 'qrcode.react'; // Import QR code component
 
 
 const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your Infura Project ID
@@ -19,9 +18,7 @@ const UploadService = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState('');
   const [galleryJsonUrl, setGalleryJsonUrl] = useState(null); // URL for the gallery JSON file
-  const [expirationTime, setExpirationTime] = useState(2); // Default to 2
-  const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
-  
+
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
     if (selectedFiles.length + files.length <= 10) {
@@ -53,22 +50,6 @@ const UploadService = () => {
     event.preventDefault();
   };
 
-    const handleExpirationChange = (event) => {
-    setExpirationTime(event.target.value);
-  };
-
-  const handleUnitChange = (event) => {
-    setExpirationUnit(event.target.value);
-  };
-  const handleCopyUrl = () => {
-    navigator.clipboard.writeText(galleryJsonUrl);
-    alert('URL скопирован в буфер обмена!');
-  };
-
-  const handleDeleteNow = () => {
-    window.location.reload();
-  };
-  
 const handleUpload = async () => {
     setLoading(true);
     const imageUrls = [];
@@ -95,7 +76,7 @@ const handleUpload = async () => {
     //const datax = await pinata.gateways.get(jsonResponse.cid);
     //console.log(datax)
 
-    setGalleryJsonUrl(`${jsonResponse.cid}`);
+    setGalleryJsonUrl(`https://chocolate-internal-scorpion-907.mypinata.cloud/files/${jsonResponse.cid}`);
     //console.log(datax)
 
   
@@ -192,8 +173,6 @@ const handleUpload = async () => {
           </div>
         </li>
       </ul>
-    <div className="flex flex-col items-center p-10 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
-   
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Ваши Файлы:</h2>
@@ -218,7 +197,7 @@ const handleUpload = async () => {
 {/* Hint Section */}
 {/* Hint Section */}
 <div className="flex flex-col items-center mt-6">
-  <p className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-500 shadow-lg shadow-green-500/50 p-3 mx-4 rounded-md">
+  <p className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 shadow-lg shadow-orange-500/50 p-3 mx-4 rounded-md">
     Метаданные были успешно очищены при загрузке. Ваши файлы безопасны и защищены от лишней информации.
   </p>
 </div>
@@ -274,42 +253,20 @@ const handleUpload = async () => {
         </div>
       )}
 {galleryJsonUrl && (
-  <div className="mt-6 w-full max-w-lg  items-center">
-    <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке</h2>
+  <div className="mt-6 w-full max-w-lg">
+    <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке:</h2>
+    <div className="text-center mb-4">
+      <a
+        href={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-400 hover:underline"
+      >
+        Открыть галерею
+      </a>
+    </div>
   </div>
 )}
- {/* QR Code and Link Box */}
-      {galleryJsonUrl && (
-        <div className="mt-6 w-full max-w-lg bg-gray-800 p-4 rounded-lg shadow-lg flex items-center space-x-4">
-          {/* QR Code Section */}
-          <QRCodeCanvas value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`} className="w-24 h-24" />
-
-          {/* Link and Copy Button Section */}
-          <div className="flex-1">
-            <textarea
-              value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
-              readOnly
-              className="w-full p-2 mb-2 text-sm text-gray-900 bg-white rounded resize-none dark:bg-gray-800 dark:text-gray-300"
-            />
-            <div className="flex mt-2 space-x-2">
-              <button
-                onClick={handleCopyUrl}
-                className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
-              >
-                Скопировать ссылку
-              </button>
-              <button
-                onClick={handleDeleteNow}
-                className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600"
-              >
-                Удалить сейчас
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* [Remaining code, including upload button and footer] */}
       {uploadedUrls.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
           <h2 className="text-2xl font-bold mb-4">Загруженные Файлы:</h2>
