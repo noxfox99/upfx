@@ -315,12 +315,12 @@ const handleUpload = async () => {
           <div className="flex-1">
             <textarea
               readOnly
-              value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`}
+              value={`/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`}
               className="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded resize-none focus:outline-none dark:bg-gray-700 dark:text-white"
             />
             <div className="flex mt-2 space-x-2">
           <button
-  onClick={() => window.open(`${window.location.origin}/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`, '_blank')}
+  onClick={() => window.open(`${window.location.origin}/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`, '_blank')}
   className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
 >
   Открыть галерею
