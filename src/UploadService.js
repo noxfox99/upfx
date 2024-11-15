@@ -31,10 +31,10 @@ const UploadService = () => {
     }
   };
 
-   const createGalleryJson = (imageUrls) => {
+   const createGalleryJson = (imageUrls,descrx) => {
     return JSON.stringify({
       title: "Gallery",
-      description: "This is a gallery of uploaded images",
+      description: descrx,
       images: imageUrls.map(url => ({ url })),
     }, null, 2);
   };
@@ -82,7 +82,7 @@ const handleUpload = async () => {
       await Promise.all(uploadPromises);
 
       // Step 2: Create JSON content for the gallery
-      const jsonContent = createGalleryJson(imageUrls);
+      const jsonContent = createGalleryJson(imageUrls,comment);
       const jsonBlob = new Blob([jsonContent], { type: 'application/json' });
       const jsonFile = new File([jsonBlob], 'gallery.json', { type: 'application/json' });
 
