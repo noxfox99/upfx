@@ -95,7 +95,7 @@ const handleUpload = async () => {
     //const datax = await pinata.gateways.get(jsonResponse.cid);
     //console.log(datax)
 
-    setGalleryJsonUrl(`https://chocolate-internal-scorpion-907.mypinata.cloud/files/${jsonResponse.cid}`);
+    setGalleryJsonUrl(`${jsonResponse.cid}`);
     //console.log(datax)
 
   
@@ -321,12 +321,13 @@ const handleUpload = async () => {
               className="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded resize-none focus:outline-none dark:bg-gray-700 dark:text-white"
             />
             <div className="flex mt-2 space-x-2">
-              <button
-                onClick={handleCopyUrl}
-                className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
-              >
-                Скопировать ссылку
-              </button>
+          <button
+  onClick={() => window.open(`${window.location.origin}/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`, '_blank')}
+  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
+>
+  Открыть галерею
+</button>
+
               <button
                 onClick={handleDeleteNow}
                 className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600"
