@@ -310,7 +310,7 @@ const handleUpload = async () => {
  {galleryJsonUrl && (
         <div className="flex items-center p-4 mt-6 border border-gray-300 bg-gray-100 rounded-lg shadow-md dark:border-gray-700 dark:bg-gray-800">
           <div className="mr-4">
-            <QRCode value={`/gallery?jsonUrl=${encodeURIComponent(galleryJsonUrl)}`} size={100} />
+            <QRCode value={`/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`} size={100} />
           </div>
           <div className="flex-1">
             <textarea
