@@ -7,7 +7,7 @@ const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your
 const PINATA_SECRET_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI4ZWY3N2NlNC1lYjRkLTQ3NmQtYjc3ZC0yZjQwMWQwZTdhMmMiLCJlbWFpbCI6InNxYWltZXNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjY1YmJiYmI3YzJjMjE1NGI3YzIwIiwic2NvcGVkS2V5U2VjcmV0IjoiZTdjZDA4ZTZkZGQyNGM4NzEyZTgwZmIzMjgzNDU4MjBlZTYxNWEwNTFlNjViMTViZTdlMTgwNDFmZTczMmM2YyIsImV4cCI6MTc2MjQ1NTExM30.PC3g9CarhHwxVynKXoqQwsqC9qZoEEKZdm2EY0L7HZk';  // Replace with your Infura Project Secret
 const pinata = new PinataSDK({
   pinataJwt: PINATA_SECRET_API_KEY,
-  pinataGateway: "https://chocolate-internal-scorpion-907.mypinata.cloud/",
+  pinataGateway: "https://chocolate-internal-scorpion-907.mypinata.cloud",
 });
 //bafkreifye7mrysnirozj3yvho3xrhtjrrl26jxn5f6lmpcjedsjm3k7gee
 const GalleryPage = () => {
@@ -18,29 +18,64 @@ const GalleryPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+function extractAfterFiles(url) {
+    return url.split('files/')[1];
+}
+
   useEffect(() => {
     // Fetch the JSON data from the given IPFS URL
     const fetchData = async () => {
       try {
         console.log('start');
-        /*const urlx = await pinata.gateways.createSignedURL({
-        cid: "bafkreibm6jg3ux5qumhcn2b3flc3tyu6dmlb4xa7u5bf44yegnrjhc4yeq",
-      expires: 1800,
-    })
-    console.log(urlx)
-        const datac = await pinata.gateways.get("bafkreibm6jg3ux5qumhcn2b3flc3tyu6dmlb4xa7u5bf44yegnrjhc4yeq");
-        console.log(datac);
-*/
-        const response = await fetch('gallery.json');
+        console.log(jsonUrl)
+      //  const { dataz, contentTypex } = await pinata.gateways.get(jsonUrl);
+        console.log('xxxxx');
+      //  console.log(dataz);
+      
+        //const datac = await pinata.gateways.get("bafkreibm6jg3ux5qumhcn2b3flc3tyu6dmlb4xa7u5bf44yegnrjhc4yeq");
+      const urlx = await pinata.gateways.createSignedURL({
+  cid: jsonUrl,
+  expires: 3000, // Number of seconds link is valid for
+});
+
+        console.log(urlx);
+  console.log('bbbbb');
+  const corsProxy = 'https://api.allorigins.win/get?url=';
+  const proxiedUrl = `${corsProxy}${encodeURIComponent(urlx)}`;
+ console.log(proxiedUrl);
+
+        const response = await fetch(proxiedUrl);
+        const datax = await response.json();
+        console.log('vvvvv');
+        console.log(datax);
         if (!response.ok) throw new Error('Network response was not OK');
-        console.log(response);
+        console.log('ggggg');
+        //console.log(response);
         const contentType = response.headers.get("content-type");
         if (!contentType || !contentType.includes("application/json")) {
           throw new Error("Received data is not in JSON format");
         }
 
-        const data = await response.json();
-        setImageUrls(data.images.map(image => image.url));
+        const data = JSON.parse(datax.contents);
+        //console.log(data);
+        //setImageUrls(data.images.map(image => image.url));
+
+    async function updateImageUrls(data) {
+    const imageUrls = await Promise.all(
+        data.images.map(async (image) => {
+            const cid = extractAfterFiles(image.url); // Extract the CID from image URL
+            const signedUrl = await pinata.gateways.createSignedURL({
+                cid: cid,
+                expires: 3000, // Number of seconds link is valid for
+            });
+            return signedUrl;
+        })
+    );
+    
+    setImageUrls(imageUrls); // Set the array of signed URLs
+}
+updateImageUrls(data);
+
       } catch (error) {
         console.error('Error fetching gallery data:', error);
         setError(error.message);
