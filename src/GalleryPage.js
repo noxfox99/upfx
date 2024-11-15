@@ -17,6 +17,7 @@ const GalleryPage = () => {
   const [imageUrls, setImageUrls] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [descrx, setDescrx] = useState([]);
 
 function extractAfterFiles(url) {
     return url.split('files/')[1];
@@ -59,7 +60,7 @@ function extractAfterFiles(url) {
         const data = JSON.parse(datax.contents);
         //console.log(data);
         //setImageUrls(data.images.map(image => image.url));
-
+    
     async function updateImageUrls(data) {
     const imageUrls = await Promise.all(
         data.images.map(async (image) => {
@@ -74,6 +75,7 @@ function extractAfterFiles(url) {
     
     setImageUrls(imageUrls); // Set the array of signed URLs
 }
+setDescrx(data.description);
 updateImageUrls(data);
 
       } catch (error) {
@@ -136,9 +138,9 @@ updateImageUrls(data);
 
    {/* Example Text Section */}
       <section className="w-full p-6 bg-gradient-to-r mt-2 from-gray-800 to-gray-700 text-center mb-6">
-        <h2 className="text-1xl font-semibold mb-2">Пример текста</h2>
+        <h2 className="text-1xl font-semibold mb-2">Комментарий</h2>
         <p className="text-md text-gray-300">
-          Это пример текста, который демонстрирует, как можно добавить дополнительный контент на страницу галереи.
+        {descrx}
         </p>
       </section>
       {/* Advertising Section */}
