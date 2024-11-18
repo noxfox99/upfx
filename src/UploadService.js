@@ -556,9 +556,6 @@ const handleUpload = async () => {
           </div>
           </div>
           <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full ">
-            <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-[#49bce6]">Загрузить</p>
-            <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-[#49bce6]">FAQ</p>
-            <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-[#49bce6]">Контакты</p>
           </div>
         </div>
         <div className="flex justify-center items-center flex-col mt-5">
