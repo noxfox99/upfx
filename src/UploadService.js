@@ -169,8 +169,6 @@ const handleUpload = async () => {
             </svg>
           </div></a>
         </div>
-          <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-[#49bce6]">FAQ</p>
-          <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-[#49bce6]">Контакты</p>
         </div>
       </header>
 
