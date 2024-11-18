@@ -515,13 +515,13 @@ const handleUpload = async () => {
         </li>
       </ul>
     </div>
-   <section className="mt-20 w-full flex flex-col items-center bg-gray-800 p-10 text-white my-5 items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl mt-10">
+   <section className="mt-20 w-full flex flex-col items-center bg-white-800 p-10 text-white my-5 items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl mt-10">
         <h2 className="text-2xl font-bold mb-4 text-gradient">Почему IPFS?</h2>
         <p className="text-white text-base text-center mx-2 text-center mb-4 text-white py-2 text-gradient">
           IPFS (InterPlanetary File System) — это децентрализованный протокол, который позволяет эффективно хранить и делиться данными. Благодаря IPFS, ваши файлы будут доступны в любое время, из любой точки мира, без рисков утраты данных.
         </p>
       </section>
-         <section className="mt-5 w-full flex flex-col items-center bg-gray-800 p-10 text-white my-20 items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl mt-10">
+         <section className="mt-5 w-full flex flex-col items-center bg-white-800 p-10 text-white my-20 items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl mt-10">
         <h2 className="text-2xl font-bold mb-4 text-gradient">Удаление Метаданных</h2>
         <p className="text-white text-base text-center mx-2 text-center mb-4 text-white py-2 text-gradient">
           Загружаемый файл отчищается от таких метаданных как геолокация, телефон, разрешение девайса и прочих дополнительных данных, гарантируя анонимность источника создания
