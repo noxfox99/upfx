@@ -2,13 +2,30 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { PinataSDK } from "pinata";
 import QRCode from 'qrcode.react'; // Импортируем компонент QRCode
+import imageCompression from 'browser-image-compression';
+
 const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your Infura Project ID
 const PINATA_SECRET_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI4ZWY3N2NlNC1lYjRkLTQ3NmQtYjc3ZC0yZjQwMWQwZTdhMmMiLCJlbWFpbCI6InNxYWltZXNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjY1YmJiYmI3YzJjMjE1NGI3YzIwIiwic2NvcGVkS2V5U2VjcmV0IjoiZTdjZDA4ZTZkZGQyNGM4NzEyZTgwZmIzMjgzNDU4MjBlZTYxNWEwNTFlNjViMTViZTdlMTgwNDFmZTczMmM2YyIsImV4cCI6MTc2MjQ1NTExM30.PC3g9CarhHwxVynKXoqQwsqC9qZoEEKZdm2EY0L7HZk';  // Replace with your Infura Project Secret
 const pinata = new PinataSDK({
   pinataJwt: PINATA_SECRET_API_KEY,
   pinataGateway: "https://chocolate-internal-scorpion-907.mypinata.cloud/",
 });
+const compressAndRemoveMetadata = async (file) => {
+  const options = {
+    maxSizeMB: 1, // Максимальный размер файла — 1 МБ
+    maxWidthOrHeight: 1920, // Изменить размер изображения до 1920x1920
+    useWebWorker: true, // Включить многопоточность для повышения производительности
+    exifOrientation: true, // Сохраняет правильную ориентацию, но удаляет метаданные
+  };
 
+  try {
+    const compressedFile = await imageCompression(file, options); // Сжимает файл
+    return compressedFile; // Возвращает обработанный файл
+  } catch (error) {
+    console.error('Ошибка при удалении метаданных и сжатии:', error);
+    throw new Error('Ошибка удаления метаданных и сжатия.');
+  }
+};
 const UploadService = () => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,17 +34,34 @@ const UploadService = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState('');
   const [galleryJsonUrl, setGalleryJsonUrl] = useState(null); // URL for the gallery JSON file
- const [expirationTime, setExpirationTime] = useState(2); // Default to 2
+  const [expirationTime, setExpirationTime] = useState(2); // Default to 2
   const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
-  
-  const handleFileChange = (event) => {
-    const selectedFiles = Array.from(event.target.files);
-    if (selectedFiles.length + files.length <= 10) {
-      setFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
+  const [removeMetadata, setRemoveMetadata] = useState(false);
+
+const handleFileChange = async (event) => {
+  const selectedFiles = Array.from(event.target.files);
+
+  try {
+    const processedFiles = await Promise.all(
+      selectedFiles.map(async (file) => {
+        if (removeMetadata) {
+          return await compressAndRemoveMetadata(file);
+        }
+        return file; // Если флажок не выбран, возвращаем исходный файл
+      })
+    );
+
+    if (processedFiles.length + files.length <= 10) {
+      setFiles((prevFiles) => [...prevFiles, ...processedFiles]);
     } else {
-      alert('You can only upload a maximum of 10 files.');
+      alert('Можно загрузить не более 10 файлов.');
     }
-  };
+  } catch (error) {
+    console.error('Ошибка обработки файлов:', error);
+    alert('Не удалось обработать файлы.');
+  }
+};
+
 
    const createGalleryJson = (imageUrls,descrx) => {
     return JSON.stringify({
@@ -205,17 +239,19 @@ const handleUpload = async () => {
         </label>
       </li>
       <li className="flex items-center">
-        <input
-          id="remove-metadata"
-          type="checkbox"
-          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-        />
-        <label
-          htmlFor="remove-metadata"
-          className="ml-3 text-sm font-medium text-gray-800 dark:text-gray-300"
-        >
-          Сжать и удалить Metadata
-        </label>
+       <input
+  id="remove-metadata"
+  type="checkbox"
+  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+  checked={removeMetadata}
+  onChange={() => setRemoveMetadata(!removeMetadata)}
+/>
+<label
+  htmlFor="remove-metadata"
+  className="ml-3 text-sm font-medium text-gray-800 dark:text-gray-300"
+>
+  Сжать и удалить метаданные
+</label>
       </li>
     </ul>
   </div>
@@ -431,7 +467,7 @@ const handleUpload = async () => {
                 <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
               <div className="w-full text-lg font-semibold">Рекламный Блок</div>
-              <div className="w-full text-sm">Отправте запрос на info@photobunker.xyz</div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro/div>
             </div>
           </label>
         </li>
@@ -453,7 +489,7 @@ const handleUpload = async () => {
                 <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
               <div className="w-full text-lg font-semibold">Рекламный Блок</div>
-              <div className="w-full text-sm">Отправте запрос на info@photobunker.xyz</div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro/div>
             </div>
           </label>
         </li>
@@ -475,7 +511,7 @@ const handleUpload = async () => {
                 <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
                <div className="w-full text-lg font-semibold">Рекламный Блок</div>
-              <div className="w-full text-sm">Отправте запрос на info@photobunker.xyz</div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro/div>
             </div>
           </label>
         </li>
@@ -529,7 +565,7 @@ const handleUpload = async () => {
         </div>
         <div className="flex justify-center items-center flex-col mt-5">
           <p className="text-white text-sm text-center">Загрузи фото в безопасное хранилище</p>
-          <p className="text-white text-sm text-center font-medium mt-2">support@photobunker.com</p>
+          <p className="text-white text-sm text-center font-medium mt-2">support@photobunker.pro/p>
         </div>
         <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 "></div>
         <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
