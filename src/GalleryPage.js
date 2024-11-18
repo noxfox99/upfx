@@ -103,7 +103,8 @@ updateImageUrls(data);
         <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full ">
         <div className="flex flex-[0.5] justify-center items-center">
           {/* "PhotoBunker" as a button-like text */}
-          <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-1 rounded-lg shadow-lg hover:opacity-75">
+        <a href="/">
+          <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
             <span className="text-2xl font-semibold">PhotoBunker</span>
             {/* Upload Icon SVG */}
             <svg
@@ -119,7 +120,7 @@ updateImageUrls(data);
               />
               <path d="M10 13a7 7 0 100-14 7 7 0 000 14z" />
             </svg>
-          </div>
+          </div></a>
         </div>
         </div>
       </header>
