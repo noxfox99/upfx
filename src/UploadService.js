@@ -445,7 +445,7 @@ const handleUpload = async () => {
   </div>
 </div>
 
-        <div>
+     {/*    <div>
       <h3 className="mb-5 text-lg font-medium text-gray-900 dark:text-white"> </h3>
       <ul className="grid w-full gap-6 md:grid-cols-3">
         <li>
@@ -514,7 +514,7 @@ const handleUpload = async () => {
           </label>
         </li>
       </ul>
-    </div>
+    </div>*/}
    <section className="mt-20 w-full flex flex-col items-center bg-white-800 p-10 text-white my-5 items-start white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl mt-10">
         <h2 className="text-2xl font-bold mb-4 text-gradient">Почему IPFS?</h2>
         <p className="text-white text-base text-center mx-2 text-center mb-4 text-white py-2 text-gradient">
