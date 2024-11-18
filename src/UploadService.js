@@ -467,7 +467,7 @@ const handleUpload = async () => {
                 <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
               <div className="w-full text-lg font-semibold">Рекламный Блок</div>
-              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro/div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro</div>
             </div>
           </label>
         </li>
@@ -489,7 +489,7 @@ const handleUpload = async () => {
                 <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
               <div className="w-full text-lg font-semibold">Рекламный Блок</div>
-              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro/div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro</div>
             </div>
           </label>
         </li>
@@ -511,7 +511,7 @@ const handleUpload = async () => {
                 <path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1z..."></path>
               </svg>
                <div className="w-full text-lg font-semibold">Рекламный Блок</div>
-              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro/div>
+              <div className="w-full text-sm">Отправте запрос на info@photobunker.pro</div>
             </div>
           </label>
         </li>
