@@ -565,7 +565,7 @@ const handleUpload = async () => {
         </div>
         <div className="flex justify-center items-center flex-col mt-5">
           <p className="text-white text-sm text-center">Загрузи фото в безопасное хранилище</p>
-          <p className="text-white text-sm text-center font-medium mt-2">support@photobunker.pro/p>
+          <p className="text-white text-sm text-center font-medium mt-2">support@photobunker.pro</p>
         </div>
         <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 "></div>
         <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
