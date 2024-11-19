@@ -192,7 +192,7 @@ const handleUpload = async () => {
 {/* Expires Section */}
 {/* Stylish Settings Box */}
 <div className="mt-2 p-6 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
-  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Настройки</h2>
+{/*  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Настройки</h2> */}
 
   {/* Expires Section */}
   <div className="flex flex-wrap items-center space-y-3 sm:space-y-0 sm:space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
@@ -227,7 +227,7 @@ const handleUpload = async () => {
   
   {/* Additional Settings */}
   <div className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl p-4 shadow-md">
-    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Дополнительные настройки</h3>
+   {/* <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Дополнительные настройки</h3>*/}
     <ul className="space-y-2">
       <li className="flex items-center">
         <input
