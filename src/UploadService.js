@@ -166,7 +166,7 @@ const handleUpload = async () => {
       setFiles([]);
     }
   };
-  const Loader = () => (
+  const Loaderx = () => (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
         <span className="text-2xl font-semibold">PhotoBunker</span>
@@ -182,7 +182,7 @@ const handleUpload = async () => {
   return (
     <>
       {loading ? (
-        <Loader />
+        <Loaderx />
       ) : (
     <div className="flex flex-col items-center p-1 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
       {/* Header Section */}
