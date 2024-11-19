@@ -384,7 +384,10 @@ style={{
   </p>
 </div>
 
-          <div className="mt-3 w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+          <div style={{
+    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
+    border: '1px solid rgb(55 65 81)',
+  }} className="mt-3 w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
    
         <div style={{
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
