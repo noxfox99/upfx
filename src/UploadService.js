@@ -226,7 +226,7 @@ const handleUpload = async () => {
 
   
   {/* Additional Settings */}
-  <div className="mt-2 p-6 bg-gray-200 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
+  <div className="mt-2 p-6 bg-gray-200 bg-gradient-to-r from-gray-300 to-gray-200 dark:from-gray-800 dark:to-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
    {/* <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Дополнительные настройки</h3>*/}
     <ul className="space-y-2">
       <li className="flex items-center">
