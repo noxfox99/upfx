@@ -204,7 +204,7 @@ const handleUpload = async () => {
   }} className="flex flex-wrap items-center space-y-3 sm:space-y-0 sm:space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
     <label
       style={{
-    font-color:white,
+      color:'white',
   }}
       htmlFor="expires"
       className="block sm:inline text-lg font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0"
@@ -217,7 +217,7 @@ const handleUpload = async () => {
       value={expirationTime}
       onChange={handleExpirationChange}
 style={{
-    font-color:white,
+    color:'white',
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
     border: '1px solid rgb(55 65 81)',
   }}
@@ -227,7 +227,7 @@ style={{
       value={expirationUnit}
       onChange={handleUnitChange}
 style={{
-    font-color:white,
+    color:'white',
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
     border: '1px solid rgb(55 65 81)',
   }}
@@ -256,7 +256,7 @@ style={{
           id="advanced-encryption"
           type="checkbox"
         style={{
-    font-color:white;
+    color:'white',
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
     border: '1px solid rgb(55 65 81)',
   }}
@@ -276,7 +276,7 @@ style={{
   id="remove-metadata"
   type="checkbox"
 style={{
-    font-color:white;
+    color:'white',
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
     border: '1px solid rgb(55 65 81)',
   }}
@@ -287,7 +287,7 @@ style={{
 <label
   htmlFor="remove-metadata"
 style={{
-    font-color:white,
+    color:'white',
   }}
   className="ml-3 text-sm font-medium text-gray-800 dark:text-gray-300"
 >
