@@ -193,10 +193,13 @@ const handleUpload = async () => {
 {/* Stylish Settings Box */}
 <div className="mt-2 p-6 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
   <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Настройки</h2>
-  
+
   {/* Expires Section */}
-  <div className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
-    <label htmlFor="expires" className="text-lg font-medium text-gray-700 dark:text-gray-300">
+  <div className="flex flex-wrap items-center space-y-3 sm:space-y-0 sm:space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
+    <label
+      htmlFor="expires"
+      className="block sm:inline text-lg font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0"
+    >
       Срок хранения:
     </label>
     <input
@@ -204,12 +207,12 @@ const handleUpload = async () => {
       min="1"
       value={expirationTime}
       onChange={handleExpirationChange}
-      className="w-20 p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
+      className="w-full sm:w-20 p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
     />
     <select
       value={expirationUnit}
       onChange={handleUnitChange}
-      className="p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
+      className="w-full sm:w-auto p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
     >
       <option value="h">Часы</option>
       <option value="d">Дни</option>
@@ -218,6 +221,8 @@ const handleUpload = async () => {
       <option value="y">Годы</option>
     </select>
   </div>
+</div>
+
   
   {/* Additional Settings */}
   <div className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl p-4 shadow-md">
