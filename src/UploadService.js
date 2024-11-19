@@ -195,33 +195,6 @@ const handleUpload = async () => {
   <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Настройки</h2>
 
   {/* Expires Section */}
-  <div className="flex flex-wrap items-center space-y-3 sm:space-y-0 sm:space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
-    <label
-      htmlFor="expires"
-      className="block sm:inline text-lg font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0"
-    >
-      Срок хранения:
-    </label>
-    <input
-      type="number"
-      min="1"
-      value={expirationTime}
-      onChange={handleExpirationChange}
-      className="w-full sm:w-20 p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
-    />
-    <select
-      value={expirationUnit}
-      onChange={handleUnitChange}
-      className="w-full sm:w-auto p-2 text-sm font-medium text-gray-900 bg-gray-50 border border-gray-300 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-white dark:border-gray-500"
-    >
-      <option value="h">Часы</option>
-      <option value="d">Дни</option>
-      <option value="w">Недели</option>
-      <option value="M">Месяцы</option>
-      <option value="y">Годы</option>
-    </select>
-  </div>
-</div>
 
   
   {/* Additional Settings */}
