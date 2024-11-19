@@ -220,7 +220,7 @@ const handleUpload = async () => {
       <option value="M">Месяцы</option>
       <option value="y">Годы</option>
     </select>
-  </div>
+
 </div>
 
 
