@@ -48,14 +48,14 @@ const UploadService = () => {
   }, []);
 
   // Loader component
-  const Loaderx = () => (
+  const Loader = () => (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
         <span className="text-2xl font-semibold">PhotoBunker</span>
         <div className="flex space-x-1">
           <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></span>
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.2s" }}></span>
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.4s" }}></span>
         </div>
       </div>
       <p className="mt-4 text-sm">Загрузка... Ожидайте</p>
@@ -182,7 +182,7 @@ const handleUpload = async () => {
   return (
     <>
       {loading ? (
-        <Loaderx />
+        <Loader />
       ) : (
     <div className="flex flex-col items-center p-1 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
       {/* Header Section */}
