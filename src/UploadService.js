@@ -172,7 +172,7 @@ const handleUpload = async () => {
         </div>
       </header>
 
-      <h1 className="text-white text-4xl sm:text-5xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>
+      <h1 className="text-white text-3xl sm:text-5xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>
       <div className="border-dashed border-4 border-white p-10 w-full max-w-lg text-center cursor-pointer bg-gray-900 rounded-lg shadow-lg hover:opacity-75 transition"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
@@ -473,16 +473,7 @@ style={{
   </svg>
   <h3 className="text-lg font-semibold">Продвинутое Шифрование</h3>
   <p className="text-sm mt-2 text-gray-400">
-    IPFS использует криптографические хэши, такие как SHA-256, чтобы идентифицировать каждый файл. Этот алгоритм генерирует уникальный 256-битный код (64 символа в шестнадцатеричной системе), который невозможно подделать или подобрать. 
-  </p>
-  <p className="text-sm mt-2 text-gray-400">
     Криптографическая стойкость SHA-256 основана на вычислительной сложности подбора правильного хэша. Даже при использовании современных суперкомпьютеров, перебор всех возможных комбинаций занял бы миллиарды лет. Это делает хэши IPFS устойчивыми к атакам методом полного перебора (brute force).
-  </p>
-  <p className="text-sm mt-2 text-gray-400">
-    Более того, в процессе загрузки файлы могут быть зашифрованы дополнительными методами, чтобы защитить их содержимое. Таким образом, даже если кто-то перехватит данные, они останутся недоступными без правильного ключа.
-  </p>
-  <p className="text-sm mt-2 text-gray-400">
-    Благодаря этим передовым технологиям, загрузка файлов на нашу платформу гарантирует не только конфиденциальность, но и защиту от несанкционированного доступа. 
   </p>
 </div>
     {/* Privacy Section */}
