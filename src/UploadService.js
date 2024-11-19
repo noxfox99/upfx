@@ -144,7 +144,7 @@ const handleUpload = async () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-10 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
+    <div className="flex flex-col items-center p-5 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
       {/* Header Section */}
       <header className="w-full flex md:justify-left justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mb-6">
         <div className="flex flex-1 justify-left items-center flex-wrap sm:mt-0 mt-5 w-full ">
@@ -509,6 +509,27 @@ style={{
         Ваши файлы надежно хранятся в сети IPFS, обеспечивая высокий уровень безопасности и доступности.
       </p>
     </div>
+{/* Advances Encryption Section */}
+<div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
+  <svg
+    className="w-10 h-10 text-blue-400 mb-2"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 13l4 4L19 7"
+    ></path>
+  </svg>
+  <h3 className="text-lg font-semibold">Целостность Данных</h3>
+  <p className="text-sm mt-2 text-gray-400">
+    <strong>Как это обеспечивает безопасность?</strong> Алгоритм SHA-256 не только защищает файлы от взлома, но и обеспечивает целостность данных. Если кто-то попытается изменить файл, новый хэш сразу выявит подмену. Это делает хранение на платформе безопасным и надёжным.
+  </p>
+</div>
 
     {/* 24/7 Uptime Section */}
     <div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
