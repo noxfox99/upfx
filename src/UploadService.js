@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PinataSDK } from "pinata";
 import QRCode from 'qrcode.react'; // Импортируем компонент QRCode
