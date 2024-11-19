@@ -198,7 +198,10 @@ const handleUpload = async () => {
 {/*  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Настройки</h2> */}
 
   {/* Expires Section */}
-  <div className="flex flex-wrap items-center space-y-3 sm:space-y-0 sm:space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
+  <div style={{
+    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
+    border: '1px solid #cbd5e0',
+  }} className="flex flex-wrap items-center space-y-3 sm:space-y-0 sm:space-x-3 p-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl shadow-md">
     <label
       htmlFor="expires"
       className="block sm:inline text-lg font-medium text-gray-700 dark:text-gray-300 mb-2 sm:mb-0"
@@ -229,7 +232,10 @@ const handleUpload = async () => {
 
   
   {/* Additional Settings */}
-  <div className="mt-2 p-6 bg-gray-200 bg-gradient-to-r from-gray-300 to-gray-200 dark:from-gray-800 dark:to-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
+  <div style={{
+    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
+    border: '1px solid #cbd5e0',
+  }} className="mt-2 p-6 bg-gray-200 bg-gradient-to-r from-gray-300 to-gray-200 dark:from-gray-800 dark:to-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
    {/* <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Дополнительные настройки</h3>*/}
     <ul className="space-y-2">
       <li className="flex items-center">
