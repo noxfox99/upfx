@@ -172,7 +172,7 @@ const handleUpload = async () => {
         </div>
       </header>
 
-      <h1 className="text-white text-3xl sm:text-3xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>
+      <h1 className="text-white text-2xl sm:text-3xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>
       <div className="border-dashed border-4 border-white p-10 w-full max-w-lg text-center cursor-pointer bg-gray-900 rounded-lg shadow-lg hover:opacity-75 transition"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
