@@ -48,7 +48,7 @@ const UploadService = () => {
   }, []);
 
   // Loader component
-  const Loader = () => (
+  const Loaderx = () => (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
         <span className="text-2xl font-semibold">PhotoBunker</span>
