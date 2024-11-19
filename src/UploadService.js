@@ -240,17 +240,17 @@ style={{
   }} value="h">Часы</option>
       <option style={{
     color:'white',
-    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
+    background: 'rgb(55, 65, 81)',
     border: '1px solid rgb(55 65 81)',
   }} value="d">Дни</option>
       <option style={{
     color:'white',
-    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
+    background: 'rgb(55, 65, 81)',
     border: '1px solid rgb(55 65 81)',
   }} value="w">Недели</option>
       <option style={{
     color:'white',
-    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
+    background: 'rgb(55, 65, 81)',
     border: '1px solid rgb(55 65 81)',
   }} value="M">Месяцы</option>
     </select>
