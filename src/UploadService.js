@@ -226,7 +226,7 @@ const handleUpload = async () => {
 
   
   {/* Additional Settings */}
-  <div className="bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl p-4 shadow-md">
+  <div className="mt-2 p-6 bg-gray-200 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
    {/* <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Дополнительные настройки</h3>*/}
     <ul className="space-y-2">
       <li className="flex items-center">
@@ -565,7 +565,7 @@ const handleUpload = async () => {
           </div>
         </div>
         <div className="flex justify-center items-center flex-col mt-5">
-          <p className="text-white text-sm text-center">Загрузи фото в безопасное хранилище</p>
+          <p className="text-white text-sm text-center">Бесплатное хранилище нового поколения для ваших медиафайлов</p>
           <p className="text-white text-sm text-center font-medium mt-2">support@photobunker.pro</p>
         </div>
         <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 "></div>
