@@ -455,6 +455,36 @@ style={{
   </p>
 
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full px-4">
+        {/* Advances Encryption Section */}
+<div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
+  <svg
+    className="w-10 h-10 text-blue-400 mb-2"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 13l4 4L19 7"
+    ></path>
+  </svg>
+  <h3 className="text-lg font-semibold">Продвинутое Шифрование</h3>
+  <p className="text-sm mt-2 text-gray-400">
+    IPFS использует криптографические хэши, такие как SHA-256, чтобы идентифицировать каждый файл. Этот алгоритм генерирует уникальный 256-битный код (64 символа в шестнадцатеричной системе), который невозможно подделать или подобрать. 
+  </p>
+  <p className="text-sm mt-2 text-gray-400">
+    Криптографическая стойкость SHA-256 основана на вычислительной сложности подбора правильного хэша. Даже при использовании современных суперкомпьютеров, перебор всех возможных комбинаций занял бы миллиарды лет. Это делает хэши IPFS устойчивыми к атакам методом полного перебора (brute force).
+  </p>
+  <p className="text-sm mt-2 text-gray-400">
+    Более того, в процессе загрузки файлы могут быть зашифрованы дополнительными методами, чтобы защитить их содержимое. Таким образом, даже если кто-то перехватит данные, они останутся недоступными без правильного ключа.
+  </p>
+  <p className="text-sm mt-2 text-gray-400">
+    Благодаря этим передовым технологиям, загрузка файлов на нашу платформу гарантирует не только конфиденциальность, но и защиту от несанкционированного доступа. 
+  </p>
+</div>
     {/* Privacy Section */}
 <div className="flex flex-col items-center bg-gray-800 rounded-lg shadow-md p-6 transform hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out">
   <svg className="w-10 h-10 text-green-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
