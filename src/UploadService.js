@@ -144,9 +144,9 @@ const handleUpload = async () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-5 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
+    <div className="flex flex-col items-center p-1 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
       {/* Header Section */}
-      <header className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mb-4">
+      <header className="w-full flex md:justify-center justify-between items-center flex-col p-2 bg-gradient-to-r from-gray-700 to-gray-900 mb-4">
         <div className="flex flex-1 justify-center items-center flex-wrap sm:mt-0 mt-5 w-full ">
         <div className="flex flex-[0.4] justify-center items-center">
           {/* "PhotoBunker" as a button-like text */}
