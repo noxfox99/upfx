@@ -37,11 +37,11 @@ const UploadService = () => {
   const [expirationTime, setExpirationTime] = useState(2); // Default to 2
   const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
   const [removeMetadata, setRemoveMetadata] = useState(false);
-  const [loading, setLoading] = useState(true); 
+  const [loadingx, setLoadingx] = useState(true); 
     // Simulate page load
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false);
+      setLoadingx(false);
     }, 3000); // Simulate a 3-second page load
 
     return () => clearTimeout(timer); // Cleanup timer
