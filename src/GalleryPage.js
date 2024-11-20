@@ -43,7 +43,7 @@ function extractAfterFiles(url) {
   console.log('bbbbb');
   const corsProxy = 'https://api.allorigins.win/get?url=';
   const proxiedUrl = `${corsProxy}${encodeURIComponent(urlx)}`;
-  const proxyUrl = `https://178.23.190.64/:3001/proxy?url=${encodeURIComponent(urlx)}`;
+  const proxyUrl = `http://178.23.190.64:3001/proxy?url=${encodeURIComponent(urlx)}`;
 
  console.log(proxyUrl);
 
