@@ -23,13 +23,6 @@ const GalleryPage = () => {
 function extractAfterFiles(url) {
     return url.split('files/')[1];
 }
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadingx(false);
-    }, 3000); // Simulate a 3-second page load
-
-    return () => clearTimeout(timer); // Cleanup timer
-  }, []);
 
   // Loader component
   const Loader = () => (
