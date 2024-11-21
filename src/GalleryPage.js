@@ -18,12 +18,37 @@ const GalleryPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [descrx, setDescrx] = useState([]);
+  const [loadingx, setLoadingx] = useState(true); 
 
 function extractAfterFiles(url) {
     return url.split('files/')[1];
 }
-
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadingx(false);
+    }, 3000); // Simulate a 3-second page load
+
+    return () => clearTimeout(timer); // Cleanup timer
+  }, []);
+
+  // Loader component
+  const Loader = () => (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+      <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
+        <span className="text-2xl font-semibold">PhotoBunker</span>
+        <div className="flex space-x-1">
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.2s" }}></span>
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.4s" }}></span>
+        </div>
+      </div>
+      <p className="mt-4 text-sm">Загрузка... Ожидайте</p>
+    </div>
+  );
+  useEffect(() => {
+     const timer = setTimeout(() => {
+      setLoadingx(false);
+    }, 3000);
     // Fetch the JSON data from the given IPFS URL
     const fetchData = async () => {
       try {
@@ -79,7 +104,7 @@ function extractAfterFiles(url) {
 }
 setDescrx(data.description);
 updateImageUrls(data);
-
+return () => clearTimeout(timer); // Cleanup timer
       } catch (error) {
         console.error('Error fetching gallery data:', error);
         setError(error.message);
@@ -100,6 +125,10 @@ updateImageUrls(data);
   }
 
   return (
+      <>
+      {loading ? (
+        <Loader />
+      ) : (
     <div className="min-h-screen bg-gray-900 text-white p-10">
     <header className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mb-6">
         <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full ">
