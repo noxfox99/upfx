@@ -51,7 +51,7 @@ function extractAfterFiles(url) {
   const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
 
  console.log(proxyUrl);
-setLoadingx(true);
+ setLoadingx(true);
         const response = await fetch(proxyUrl);
         const datax = await response.json();
         console.log('vvvvv');
@@ -88,12 +88,13 @@ updateImageUrls(data);
         console.error('Error fetching gallery data:', error);
         setError(error.message);
       } finally {
-        setLoading(false);
+        //setLoading(false);
         setLoadingx(false);
       }
     };
 //return () => clearTimeout(timer); // Cleanup timer
     fetchData();
+    setLoadingx(false);
   }, [jsonUrl]);
 
   if (loading) {
