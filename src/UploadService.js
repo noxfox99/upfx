@@ -306,6 +306,26 @@ style={{
   }} className="mt-2 p-6 bg-gray-200 bg-gradient-to-r from-gray-300 to-gray-200 dark:from-gray-800 dark:to-gray-900 border border-gray-300 dark:border-gray-700 rounded-2xl shadow-2xl max-w-lg w-full space-y-4">
    {/* <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Дополнительные настройки</h3>*/}
     <ul className="space-y-2">
+    <li className="flex items-center">
+        <input
+          id="advanced-del"
+          type="checkbox"
+        style={{
+    color:'white',
+    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
+    border: '1px solid rgb(55 65 81)',
+  }}
+          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+        />
+        <label style={{
+    color:'white',
+  }}
+          htmlFor="advanced-encryption"
+          className="ml-3 text-sm font-medium text-gray-800 dark:text-gray-300"
+        >
+          Удалить после просмотра
+        </label>
+      </li>
       <li className="flex items-center">
         <input
           id="advanced-encryption"
