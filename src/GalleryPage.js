@@ -91,7 +91,7 @@ updateImageUrls(data);
         setLoading(false);
       }
     };
-clearTimeout(timer); // Cleanup timer
+return () => clearTimeout(timer); // Cleanup timer
     fetchData();
   }, [jsonUrl]);
 
