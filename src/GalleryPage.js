@@ -40,7 +40,7 @@ function extractAfterFiles(url) {
   );
   useEffect(() => {
      const timer = setTimeout(() => {
-      setLoadingx(false);
+      setLoadingx(true);
     }, 3000);
     // Fetch the JSON data from the given IPFS URL
     const fetchData = async () => {
