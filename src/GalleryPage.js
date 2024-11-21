@@ -89,13 +89,13 @@ updateImageUrls(data);
         console.error('Error fetching gallery data:', error);
         setError(error.message);
       } finally {
-        //setLoading(false);
+        setLoading(false);
        // setLoadingx(false);
       }
     };
 //return () => clearTimeout(timer); // Cleanup timer
     fetchData();
-   // setLoadingx(false);
+    setLoadingx(false);
   }, [jsonUrl]);
 
   if (loading) {
@@ -121,7 +121,7 @@ updateImageUrls(data);
   );
   return (
       <>
-      {loadingx ? (
+      {loading ? (
         <Loader />
       ) : (
     <div className="min-h-screen bg-gray-900 text-white p-10">
