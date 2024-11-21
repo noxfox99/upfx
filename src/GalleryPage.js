@@ -32,6 +32,7 @@ function extractAfterFiles(url) {
     // Fetch the JSON data from the given IPFS URL
     const fetchData = async () => {
       try {
+        setLoadingx(true);
         console.log('start');
         console.log(jsonUrl)
       //  const { dataz, contentTypex } = await pinata.gateways.get(jsonUrl);
@@ -51,7 +52,7 @@ function extractAfterFiles(url) {
   const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
 
  console.log(proxyUrl);
- setLoadingx(true);
+ 
         const response = await fetch(proxyUrl);
         const datax = await response.json();
         console.log('vvvvv');
