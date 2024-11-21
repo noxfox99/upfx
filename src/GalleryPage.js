@@ -148,11 +148,11 @@ updateImageUrls(data);
       </section>
       {/* Advertising Section */}
       <section className="w-full p-8 bg-gradient-to-r from-indigo-700 to-purple-800 text-center rounded-lg mb-6 shadow-lg">
-        <h2 className="text-3xl font-bold mb-4 text-white">Реклама</h2>
+        <h2 className="text-3xl font-bold mb-4 text-white">ФОТО БУНКЕР</h2>
         <p className="text-lg text-gray-200 mb-6">
           Присоединяйтесь к нашему сервису и получайте доступ к безопасному и анонимному хранению изображений.
         </p>
-        <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
+        <button onClick={() => (window.location.href = '/')} className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
           Узнать больше
         </button>
       </section>
