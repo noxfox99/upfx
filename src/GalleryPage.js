@@ -27,7 +27,7 @@ function extractAfterFiles(url) {
 
   useEffect(() => {
      const timer = setTimeout(() => {
-      setLoadingx(true);
+      setLoading(true);
     }, 3000);
     // Fetch the JSON data from the given IPFS URL
     const fetchData = async () => {
@@ -98,9 +98,6 @@ updateImageUrls(data);
     setLoadingx(false);
   }, [jsonUrl]);
 
-  if (loading) {
-    return <div className="text-center text-white">Loading Gallery...</div>;
-  }
 
   if (error) {
     return <div className="text-center text-red-500">Error: {error}</div>;
