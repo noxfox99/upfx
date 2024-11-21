@@ -97,7 +97,7 @@ function extractAfterFiles(url) {
 }
 setDescrx(data.description);
 updateImageUrls(data);
-return () => clearTimeout(timer); // Cleanup timer
+clearTimeout(timer); // Cleanup timer
       } catch (error) {
         console.error('Error fetching gallery data:', error);
         setError(error.message);
