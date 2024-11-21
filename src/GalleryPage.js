@@ -64,7 +64,7 @@ function extractAfterFiles(url) {
   const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
 
  console.log(proxyUrl);
-setLoading(true);
+setLoadingx(true);
         const response = await fetch(proxyUrl);
         const datax = await response.json();
         console.log('vvvvv');
