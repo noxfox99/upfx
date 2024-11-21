@@ -27,12 +27,12 @@ function extractAfterFiles(url) {
 
   useEffect(() => {
      const timer = setTimeout(() => {
-      setLoadingx(false);
+      setLoadingx(true);
     }, 3000);
     // Fetch the JSON data from the given IPFS URL
     const fetchData = async () => {
       try {
-        setLoadingx(true);
+        //setLoadingx(true);
         console.log('start');
         console.log(jsonUrl)
       //  const { dataz, contentTypex } = await pinata.gateways.get(jsonUrl);
