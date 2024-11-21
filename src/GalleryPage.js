@@ -89,7 +89,7 @@ updateImageUrls(data);
         setError(error.message);
       } finally {
         //setLoading(false);
-        setLoadingx(false);
+       // setLoadingx(false);
       }
     };
 //return () => clearTimeout(timer); // Cleanup timer
