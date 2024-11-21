@@ -185,5 +185,5 @@ clearTimeout(timer); // Cleanup timer
     </div>
   );
 };
-
+};
 export default GalleryPage;
