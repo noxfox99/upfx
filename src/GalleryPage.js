@@ -24,20 +24,7 @@ function extractAfterFiles(url) {
     return url.split('files/')[1];
 }
 
-  // Loader component
-  const Loader = () => (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
-        <span className="text-2xl font-semibold">PhotoBunker</span>
-        <div className="flex space-x-1">
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.2s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.4s" }}></span>
-        </div>
-      </div>
-      <p className="mt-4 text-sm">Загрузка... Ожидайте</p>
-    </div>
-  );
+
   useEffect(() => {
      const timer = setTimeout(() => {
       setLoadingx(true);
@@ -115,10 +102,23 @@ clearTimeout(timer); // Cleanup timer
   if (error) {
     return <div className="text-center text-red-500">Error: {error}</div>;
   }
-
+  // Loader component
+  const Loader = () => (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+      <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
+        <span className="text-2xl font-semibold">PhotoBunker</span>
+        <div className="flex space-x-1">
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.2s" }}></span>
+          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.4s" }}></span>
+        </div>
+      </div>
+      <p className="mt-4 text-sm">Загрузка... Ожидайте</p>
+    </div>
+  );
   return (
       <>
-      {loading ? (
+      {loadingx ? (
         <Loader />
       ) : (
     <div className="min-h-screen bg-gray-900 text-white p-10">
