@@ -59,7 +59,7 @@ function extractAfterFiles(url) {
           throw new Error("Received data is not in JSON format");
         }
 
-        const data = JSON.parse(datax);
+        const data = datax;
         //console.log(data);
         //setImageUrls(data.images.map(image => image.url));
     
