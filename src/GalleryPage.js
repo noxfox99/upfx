@@ -94,7 +94,7 @@ updateImageUrls(data);
     };
 //return () => clearTimeout(timer); // Cleanup timer
     fetchData();
-    setLoadingx(false);
+   // setLoadingx(false);
   }, [jsonUrl]);
 
   if (loading) {
