@@ -183,7 +183,8 @@ clearTimeout(timer); // Cleanup timer
         <p className="text-sm">Powered by PhotoBunker | Secure & Anonymous Storage</p>
       </footer>
     </div>
+   )}
+    </>
   );
-};
 };
 export default GalleryPage;
