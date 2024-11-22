@@ -87,7 +87,7 @@ const handleFileChange = async (event) => {
 };
 
 
-   const createGalleryJson = (imageUrls,descrx,timex) => {
+   const createGalleryJson = (imageUrls,descrx) => {
      const advancedDelChecked = document.getElementById('advanced-del')?.checked;
     return JSON.stringify({
       title: "Gallery",
