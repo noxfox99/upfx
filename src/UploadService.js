@@ -451,7 +451,7 @@ style={{
       )}
 {galleryJsonUrl && (
   <div className="flex flex-col justify-center items-center mt-3 w-full max-w-lg">
-    <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient text-center">Галерея доступна по ссылке:</h1>
+    <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient text-center">Галерея доступна по ссылке</h1>
   </div>
 )}
  {galleryJsonUrl && (
