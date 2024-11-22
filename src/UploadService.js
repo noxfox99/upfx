@@ -91,7 +91,6 @@ const handleFileChange = async (event) => {
     return JSON.stringify({
       title: "Gallery",
       description: descrx,
-      timex: timex,
       images: imageUrls.map(url => ({ url })),
     }, null, 2);
   };
