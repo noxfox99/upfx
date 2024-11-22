@@ -91,6 +91,7 @@ const handleFileChange = async (event) => {
     return JSON.stringify({
       title: "Gallery",
       description: descrx,
+      timex: timex,
       images: imageUrls.map(url => ({ url })),
     }, null, 2);
   };
@@ -252,8 +253,7 @@ const handleUpload = async () => {
       Срок хранения:
     </label>
     <input
-      type="number"
-      min="1"
+      type="text"
       value={expirationTime}
       onChange={handleExpirationChange}
 style={{
