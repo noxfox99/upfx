@@ -253,7 +253,8 @@ const handleUpload = async () => {
       Срок хранения:
     </label>
     <input
-      type="text"
+      type="number"
+      min="1"
       value={expirationTime}
       onChange={handleExpirationChange}
 style={{
