@@ -216,7 +216,7 @@ const handleUpload = async () => {
         </div>
         </div>
       </header>
-
+{!filesUploaded && (
       <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>
       <div className="border-dashed border-4 border-white p-10 w-full max-w-lg text-center cursor-pointer bg-gray-900 rounded-lg shadow-lg hover:opacity-75 transition"
         onDrop={handleDrop}
@@ -233,7 +233,7 @@ const handleUpload = async () => {
           Перетащите файлы или кликните для загрузки
         </label>
       </div>
-   
+   )}
 {/* Expires Section */}
 {/* Stylish Settings Box */}
 {!filesUploaded && (
@@ -433,7 +433,7 @@ style={{
       </div>
         </div>
       )}
-
+{!filesUploaded && (
       <button
         onClick={handleUpload}
         className={`mt-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-6 rounded-lg transition ${
@@ -443,15 +443,15 @@ style={{
       >
         {loading ? 'Загрузка...' : 'Загрузить файлы'}
       </button>
-
+)}
       {loading && (
         <div className="mt-4 text-center text-lg font-semibold">
           <p>Загрузка... Ожидайте</p>
         </div>
       )}
 {galleryJsonUrl && (
-  <div className="mt-6 w-full max-w-lg items-center justify-center">
-    <h2 className="text-2xl font-bold mb-4">Галерея доступна по ссылке:</h2>
+  <div className="flex flex-col justify-center items-center mt-3 w-full max-w-lg">
+    <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient text-center">Галерея доступна по ссылке:</h1>
   </div>
 )}
  {galleryJsonUrl && (
