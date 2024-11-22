@@ -87,9 +87,11 @@ const handleFileChange = async (event) => {
 };
 
 
-   const createGalleryJson = (imageUrls,descrx) => {
+   const createGalleryJson = (imageUrls,descrx,timex) => {
+     const advancedDelChecked = document.getElementById('advanced-del')?.checked;
     return JSON.stringify({
       title: "Gallery",
+      timex: advancedDelChecked ? 1 : 3,
       description: descrx,
       images: imageUrls.map(url => ({ url })),
     }, null, 2);
