@@ -38,6 +38,8 @@ const UploadService = () => {
   const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
   const [removeMetadata, setRemoveMetadata] = useState(false);
   const [loadingx, setLoadingx] = useState(true); 
+  const [filesUploaded, setFilesUploaded] = useState(false);
+
     // Simulate page load
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -155,6 +157,7 @@ const handleUpload = async () => {
 
     setGalleryJsonUrl(`${jsonResponse.cid}`);
     //console.log(datax)
+    setFilesUploaded(true);
 
   
 
@@ -233,6 +236,7 @@ const handleUpload = async () => {
    
 {/* Expires Section */}
 {/* Stylish Settings Box */}
+{!filesUploaded && (
 <div style={{
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
     border: '1px solid rgb(55 65 81)',
@@ -354,7 +358,7 @@ style={{
   </div>
 </div>
 
-
+)}
 
       {files.length > 0 && (
         <div className="mt-6 w-full max-w-lg">
