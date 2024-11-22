@@ -122,12 +122,12 @@ updateImageUrls(data);
         <Loader />
       ) : (
     <div className="min-h-screen bg-gray-900 text-white p-0">
-    <header className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mb-6">
+    <header className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mb-1">
         <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full ">
         <div className="flex flex-[0.5] justify-center items-center">
           {/* "PhotoBunker" as a button-like text */}
         <a href="/">
-          <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
+          <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 shadow-lg hover:opacity-75">
             <span className="text-2xl font-semibold">PhotoBunker</span>
             {/* Upload Icon SVG */}
             <svg
