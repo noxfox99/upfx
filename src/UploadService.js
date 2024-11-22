@@ -328,26 +328,6 @@ style={{
         </label>
       </li>
       <li className="flex items-center">
-        <input
-          id="advanced-encryption"
-          type="checkbox"
-        style={{
-    color:'white',
-    background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
-    border: '1px solid rgb(55 65 81)',
-  }}
-          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-        />
-        <label style={{
-    color:'white',
-  }}
-          htmlFor="advanced-encryption"
-          className="ml-3 text-sm font-medium text-gray-800 dark:text-gray-300"
-        >
-          Продвинутое шифрование
-        </label>
-      </li>
-      <li className="flex items-center">
        <input
   id="remove-metadata"
   type="checkbox"
