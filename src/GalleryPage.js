@@ -147,6 +147,18 @@ updateImageUrls(data);
         </div>
         </div>
       </header>
+  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 text-center w-full max-w-screen flex items-center space-x-4">
+  <!-- SVG Icon -->
+  <svg className="w-8 h-8 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l2 2m-2-2l-2 2m10-8a9.955 9.955 0 01-4.22 8.09L12 21l-3.78-6.91A9.955 9.955 0 014 4a10 10 0 0116 0z"/>
+  </svg>
+  
+  <!-- Text Content -->
+  <p className="flex-1 text-sm sm:text-base font-semibold">
+    Файлы были удалены и больше не существуют. Повторный просмотр файлов невозможен.
+  </p>
+</div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {imageUrls.map((url, index) => (
           <div key={index} className="relative">
