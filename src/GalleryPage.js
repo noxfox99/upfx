@@ -40,6 +40,7 @@ function extractAfterFiles(url) {
       console.log('check 1');
       const datacheck = await pinata.gateways.get(ids,);
       console.log(datacheck);
+      console.log('check 2');
     } catch (error) {
       console.error('Error check\ing files:', error);
     }
