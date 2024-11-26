@@ -40,6 +40,66 @@ const UploadService = () => {
   const [loadingx, setLoadingx] = useState(true); 
   const [filesUploaded, setFilesUploaded] = useState(false);
   const [isdelChecked, setIsdelChecked] = useState(false);
+  const [expirationTime, setExpirationTime] = useState("");
+  const [expirationUnit, setExpirationUnit] = useState("h"); // Default is 'hours'
+  const [error, setError] = useState(""); // Error message state
+
+   const handleExpirationChange = (event) => {
+    const value = event.target.value;
+
+    // Validate the input value based on the selected unit
+    let maxAllowedValue;
+    switch (expirationUnit) {
+      case "h": // Hours
+        maxAllowedValue = 24;
+        break;
+      case "d": // Days
+        maxAllowedValue = 365;
+        break;
+      case "w": // Weeks
+        maxAllowedValue = 52;
+        break;
+      case "M": // Months
+        maxAllowedValue = 12;
+        break;
+      default:
+        maxAllowedValue = Infinity;
+    }
+
+    if (value === "" || (Number(value) > 0 && Number(value) <= maxAllowedValue)) {
+      setExpirationTime(value); // Update input if valid
+      setError(""); // Clear error
+    } else {
+      setError(
+        `Максимально допустимое значение для "${getUnitLabel(
+          expirationUnit
+        )}" - ${maxAllowedValue}.`
+      );
+    }
+  };
+
+  const handleUnitChange = (event) => {
+    setExpirationUnit(event.target.value);
+    setError(""); // Reset error when unit changes
+  };
+
+  const getUnitLabel = (unit) => {
+    switch (unit) {
+      case "h":
+        return "Часы";
+      case "d":
+        return "Дни";
+      case "w":
+        return "Недели";
+      case "M":
+        return "Месяцы";
+      default:
+        return "";
+    }
+  };
+
+  
+  
     // Simulate page load
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -305,7 +365,9 @@ style={{
     border: '1px solid rgb(55 65 81)',
   }} value="M">Месяцы</option>
     </select>
-
+{error && (
+        <p className="w-full text-red-500 text-sm mt-2 sm:mt-0">{error}</p>
+      )}
 </div>
 
 
@@ -413,6 +475,7 @@ style={{
 style={{
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
     border: '1px solid rgb(55 65 81)',
+    color: 'white',
   }}
           className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
           placeholder="Комментарий..."
