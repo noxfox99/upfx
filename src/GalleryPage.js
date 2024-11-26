@@ -34,8 +34,10 @@ function extractAfterFiles(url) {
     };
 
     try {
-      const response = await fetch(
-        `https://chocolate-internal-scorpion-907.mypinata.cloud/pinning/unpin/${cid}`,
+      const sdkUrl = `https://chocolate-internal-scorpion-907.mypinata.cloud/pinning/unpin/${cid}`;
+      const delUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(sdkUrl)}`;
+      const response = await fetch(delUrl
+        ,
         options
       );
 
