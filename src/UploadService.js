@@ -39,7 +39,7 @@ const UploadService = () => {
   const [removeMetadata, setRemoveMetadata] = useState(false);
   const [loadingx, setLoadingx] = useState(true); 
   const [filesUploaded, setFilesUploaded] = useState(false);
-
+  const [isdelChecked, setIsdelChecked] = useState(false);
     // Simulate page load
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -48,7 +48,9 @@ const UploadService = () => {
 
     return () => clearTimeout(timer); // Cleanup timer
   }, []);
-
+   const handleCheckboxChange = (event) => {
+    setIsdelChecked(event.target.checked);
+  };
   // Loader component
   const Loader = () => (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
@@ -90,14 +92,14 @@ const handleFileChange = async (event) => {
 
 
    const createGalleryJson = (imageUrls,descrx,idxc) => {
-     const advancedDelChecked = document.getElementById('advanced-del')?.checked;
+     const advancedDelChecked = isdelChecked;
      console.log(advancedDelChecked);
     return JSON.stringify({
       title: "Gallery",
       timex: advancedDelChecked ? 1 : 3,
       description: descrx,
       images: imageUrls.map(url => ({ url })),
-      images: idxc.map(id => ({ id })),
+      xec: idxc.map(id => ({ id })),
     }, null, 2);
   };
   
@@ -319,6 +321,8 @@ style={{
         <input
           id="advanced-del"
           type="checkbox"
+          checked={isdelChecked}
+          onChange={handleCheckboxChange}
         style={{
     color:'white',
     background: 'linear-gradient(to right, #111827, rgb(55 65 81))',
