@@ -171,13 +171,6 @@ const handleFileChange = async (event) => {
     }
   };
   
- const handleExpirationChange = (event) => {
-    setExpirationTime(event.target.value);
-  };
-
-  const handleUnitChange = (event) => {
-    setExpirationUnit(event.target.value);
-  };
     const handleCopyUrl = () => {
     navigator.clipboard.writeText(galleryJsonUrl);
     alert("Ссылка скопирована в буфер обмена!");
