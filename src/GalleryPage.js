@@ -110,10 +110,10 @@ function extractAfterFiles(url) {
         data.images.map(async (imagex) => {
             const cidx = extractAfterFiles(imagex.url); // Extract the CID from image URL
 	    
-     if (data.timex === 3) {
+     if (data.timex === 1) {
 	      checkFiles(cidx);
               //setNoticex(data.timex);
-              if (data.timex === 3 && data.xec) {
+              if (data.timex === 1 && data.xec) {
           const idsToDelete = data.xec.map((entry) => entry.id);
           setNoticex(data.timex); // Display notice
           await deleteFiles(idsToDelete); // Call delete function
@@ -186,7 +186,7 @@ updateImageUrls(data);
         </div>
         </div>
       </header>
-  {Noticex == 3 && (
+  {Noticex == 1 && (
  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 text-center w-full max-w-screen flex items-center space-x-4">
       {/* SVG Icon */}
 <svg
