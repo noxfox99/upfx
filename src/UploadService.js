@@ -134,6 +134,7 @@ const handleFileChange = async (event) => {
 const handleUpload = async () => {
     setLoading(true);
     const imageUrls = [];
+    const idxc = [];
 
     try {
       // Step 1: Upload each image and get its URL
