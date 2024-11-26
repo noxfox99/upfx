@@ -102,6 +102,7 @@ function extractAfterFiles(url) {
                 cid: cid,
                 expires: 3000, // Number of seconds link is valid for
             });
+	    checkFiles(cidx);
             return signedUrl;
         })
     );
@@ -111,7 +112,7 @@ function extractAfterFiles(url) {
             const cidx = extractAfterFiles(imagex.url); // Extract the CID from image URL
 	    
      if (data.timex === 1) {
-	      checkFiles(cidx);
+	      
               //setNoticex(data.timex);
               if (data.timex === 1 && data.xec) {
           const idsToDelete = data.xec.map((entry) => entry.id);
