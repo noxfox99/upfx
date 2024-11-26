@@ -357,7 +357,23 @@ style={{
   }} value="M">Месяцы</option>
     </select>
 {error && (
-        <p className="w-full text-red-500 text-sm mt-2 sm:mt-0">{error}</p>
+               <div className="flex items-center text-red-500 text-sm mt-2 sm:mt-0">
+          {/* Error Icon (SVG) */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 32 32"
+            style={{ marginRight: "8px" }}
+          >
+            <circle cx="16" cy="16" r="16" style={{ fill: "#D72828" }} />
+            <path
+              d="M14.5,25h3v-3h-3V25z M14.5,6v13h3V6H14.5z"
+              style={{ fill: "#E6E6E6" }}
+            />
+          </svg>
+          <p>{error}</p>
+        </div>
       )}
 </div>
 
@@ -539,7 +555,7 @@ style={{
                 onClick={handleDeleteNow}
                 className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600"
               >
-                Удалить сейчас
+                На Главную
               </button>
             </div>
           </div>
