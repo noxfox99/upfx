@@ -25,35 +25,16 @@ function extractAfterFiles(url) {
     return url.split('files/')[1];
 }
 
- // Function to unpin file from Pinata
-  const unpinFile = async (cid) => {
-    const options = {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${PINATA_API_KEY}`,
-      },
-    };
-
+   const deleteFiles = async (ids) => {
     try {
-      const sdkUrl = `https://chocolate-internal-scorpion-907.mypinata.cloud/pinning/unpin/${cid}`;
-      console.log(sdkUrl);
-      const delUrl = `https://photobunker.pro/proxy?url=${sdkUrl}`;
-      console.log(delUrl);
-      const response = await fetch(delUrl
-        ,
-        options
-      );
-
-      if (!response.ok) {
-        throw new Error(`Failed to unpin CID: ${cid}`);
-      }
-
-      const result = await response.json();
-      console.log(`File with CID: ${cid} unpinned successfully`, result);
+      console.log(ids);
+      const deletedFiles = await pinata.files.delete(ids);
+      console.log('Deleted files:', deletedFiles);
     } catch (error) {
-      console.error("Error unpinning file:", error);
+      console.error('Error deleting files:', error);
     }
   };
+ // Function to unpin file from Pinata
 
   
   useEffect(() => {
@@ -116,8 +97,12 @@ function extractAfterFiles(url) {
         data.images.map(async (imagex) => {
             const cidx = extractAfterFiles(imagex.url); // Extract the CID from image URL
      if (data.timex === 3) {
-              setNoticex(data.timex);
-              await unpinFile(cidx);
+              //setNoticex(data.timex);
+              if (data.timex === 3 && data.xec) {
+          const idsToDelete = data.xec.map((entry) => entry.id);
+          setNoticex(data.timex); // Display notice
+          await deleteFiles(idsToDelete); // Call delete function
+        }
             }
         })
     );
