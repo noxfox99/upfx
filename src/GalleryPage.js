@@ -107,9 +107,14 @@ function extractAfterFiles(url) {
         })
     );
     setImageUrls(imageUrls); // Set the array of signed URLs
-    if (data.timex === 3) {
+        const imageUrls = await Promise.all(
+        data.images.map(async (image) => {
+            const cid = extractAfterFiles(image.url); // Extract the CID from image URL
+     if (data.timex === 3) {
               await unpinFile(cid);
             }
+        })
+    );
 }
 setDescrx(data.description);
 updateImageUrls(data);
