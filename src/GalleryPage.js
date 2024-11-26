@@ -18,6 +18,7 @@ const GalleryPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [descrx, setDescrx] = useState([]);
+  const [Noticex, setNoticex] = useState([]);
   const [loadingx, setLoadingx] = useState(true); 
 
 function extractAfterFiles(url) {
@@ -115,6 +116,7 @@ function extractAfterFiles(url) {
         data.images.map(async (imagex) => {
             const cidx = extractAfterFiles(imagex.url); // Extract the CID from image URL
      if (data.timex === 3) {
+              setNoticex(data.timex);
               await unpinFile(cidx);
             }
         })
@@ -184,6 +186,7 @@ updateImageUrls(data);
         </div>
         </div>
       </header>
+  {Noticex == 3 && (
  <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 text-center w-full max-w-screen flex items-center space-x-4">
       {/* SVG Icon */}
 <svg
@@ -216,7 +219,7 @@ updateImageUrls(data);
         Файлы были удалены и больше не существуют. Повторный просмотр файлов невозможен.
       </p>
     </div>
-
+ )}
       <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {imageUrls.map((url, index) => (
           <div key={index} className="relative">
