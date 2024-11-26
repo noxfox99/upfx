@@ -50,7 +50,8 @@ function extractAfterFiles(url) {
       //  const { dataz, contentTypex } = await pinata.gateways.get(jsonUrl);
         console.log('xxxxx');
       //  console.log(dataz);
-      
+    
+
         //const datac = await pinata.gateways.get("bafkreibm6jg3ux5qumhcn2b3flc3tyu6dmlb4xa7u5bf44yegnrjhc4yeq");
       const urlx = await pinata.gateways.createSignedURL({
   cid: jsonUrl,
@@ -59,6 +60,10 @@ function extractAfterFiles(url) {
 
   console.log(urlx);
   console.log('bbbbb');
+  const datacheck = await pinata.gateways.get(
+	jsonUrl,
+);
+  console.log(datacheck);
   const corsProxy = 'https://api.allorigins.win/get?url=';
   const proxiedUrl = `${corsProxy}${encodeURIComponent(urlx)}`;
   const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
