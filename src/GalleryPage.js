@@ -102,7 +102,7 @@ function extractAfterFiles(url) {
                 cid: cid,
                 expires: 3000, // Number of seconds link is valid for
             });
-	    checkFiles(cidx);
+	    checkFiles(signedUrl);
             return signedUrl;
         })
     );
