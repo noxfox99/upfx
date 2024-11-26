@@ -34,6 +34,17 @@ function extractAfterFiles(url) {
       console.error('Error deleting files:', error);
     }
   };
+
+   const checkFiles = async (ids) => {
+    try {
+      console.log('check 1');
+      const datacheck = await pinata.gateways.get(ids,);
+      console.log(datacheck);
+    } catch (error) {
+      console.error('Error check\ing files:', error);
+    }
+  };
+	 
  // Function to unpin file from Pinata
 
   
@@ -60,10 +71,7 @@ function extractAfterFiles(url) {
 
   console.log(urlx);
   console.log('bbbbb');
-  const datacheck = await pinata.gateways.get(
-	jsonUrl,
-);
-  console.log(datacheck);
+
   const corsProxy = 'https://api.allorigins.win/get?url=';
   const proxiedUrl = `${corsProxy}${encodeURIComponent(urlx)}`;
   const proxyUrl = `https://photobunker.pro/proxy?url=${encodeURIComponent(urlx)}`;
@@ -101,7 +109,9 @@ function extractAfterFiles(url) {
         const imageUrlsx = await Promise.all(
         data.images.map(async (imagex) => {
             const cidx = extractAfterFiles(imagex.url); // Extract the CID from image URL
+	    
      if (data.timex === 3) {
+	      checkFiles(cidx);
               //setNoticex(data.timex);
               if (data.timex === 3 && data.xec) {
           const idsToDelete = data.xec.map((entry) => entry.id);
