@@ -107,11 +107,11 @@ function extractAfterFiles(url) {
         })
     );
     setImageUrls(imageUrls); // Set the array of signed URLs
-        const imageUrls = await Promise.all(
-        data.images.map(async (image) => {
-            const cid = extractAfterFiles(image.url); // Extract the CID from image URL
+        const imageUrlsx = await Promise.all(
+        data.images.map(async (imagex) => {
+            const cidx = extractAfterFiles(imagex.url); // Extract the CID from image URL
      if (data.timex === 3) {
-              await unpinFile(cid);
+              await unpinFile(cidx);
             }
         })
     );
