@@ -29,7 +29,7 @@ function extractAfterFiles(url) {
     const options = {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${PINATA_SECRET_API_KEY}`,
+        Authorization: `Bearer ${PINATA_API_KEY}`,
       },
     };
 
