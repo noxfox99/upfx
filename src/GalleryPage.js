@@ -142,15 +142,22 @@ updateImageUrls(data);
   }, [jsonUrl]);
 
 if (filesDeleted) {
-    // Show this notice and hide all other content if any image fails to load
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
-        <h1 className="text-3xl font-bold bg-gradient-to-r from-red-500 to-red-800 text-white py-4 px-8 rounded-lg shadow-lg">
-          Файлы были удалены и больше недоступны.
-        </h1>
-      </div>
-    );
-  }
+  // Show this notice and hide all other content if any image fails to load
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-red-500 to-red-800 text-white py-4 px-8 rounded-lg shadow-lg mb-6">
+        Файлы были удалены и больше недоступны.
+      </h1>
+      <button
+        onClick={() => (window.location.href = "/")}
+        className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300"
+      >
+        Вернуться на главную страницу
+      </button>
+    </div>
+  );
+}
+
   if (error) {
     return <div className="text-center text-red-500">Error: {error}</div>;
   }
