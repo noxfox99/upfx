@@ -35,7 +35,7 @@ function extractAfterFiles(url) {
 
     try {
       const response = await fetch(
-        `https://api.pinata.cloud/pinning/unpin/${cid}`,
+        `https://chocolate-internal-scorpion-907.mypinata.cloud/pinning/unpin/${cid}`,
         options
       );
 
