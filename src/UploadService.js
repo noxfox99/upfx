@@ -89,13 +89,15 @@ const handleFileChange = async (event) => {
 };
 
 
-   const createGalleryJson = (imageUrls,descrx) => {
+   const createGalleryJson = (imageUrls,descrx,idxc) => {
      const advancedDelChecked = document.getElementById('advanced-del')?.checked;
+     console.log(advancedDelChecked);
     return JSON.stringify({
       title: "Gallery",
       timex: advancedDelChecked ? 1 : 3,
       description: descrx,
       images: imageUrls.map(url => ({ url })),
+      images: idxc.map(id => ({ id })),
     }, null, 2);
   };
   
@@ -138,11 +140,12 @@ const handleUpload = async () => {
       const uploadPromises = files.map(async (file) => {
         const response = await pinata.upload.file(file);
         imageUrls.push(`https://chocolate-internal-scorpion-907.mypinata.cloud/files/${response.cid}`);
+        idxc.push(`${response.id}`);
       });
       await Promise.all(uploadPromises);
 
       // Step 2: Create JSON content for the gallery
-      const jsonContent = createGalleryJson(imageUrls,comment);
+      const jsonContent = createGalleryJson(imageUrls,comment,idxc);
       const jsonBlob = new Blob([jsonContent], { type: 'application/json' });
       const jsonFile = new File([jsonBlob], 'gallery.json', { type: 'application/json' });
 
