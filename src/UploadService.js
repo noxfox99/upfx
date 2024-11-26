@@ -40,8 +40,6 @@ const UploadService = () => {
   const [loadingx, setLoadingx] = useState(true); 
   const [filesUploaded, setFilesUploaded] = useState(false);
   const [isdelChecked, setIsdelChecked] = useState(false);
-  const [expirationTime, setExpirationTime] = useState("");
-  const [expirationUnit, setExpirationUnit] = useState("h"); // Default is 'hours'
   const [error, setError] = useState(""); // Error message state
 
    const handleExpirationChange = (event) => {
