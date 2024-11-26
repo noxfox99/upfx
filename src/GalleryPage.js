@@ -20,6 +20,7 @@ const GalleryPage = () => {
   const [descrx, setDescrx] = useState([]);
   const [Noticex, setNoticex] = useState([]);
   const [loadingx, setLoadingx] = useState(true); 
+  const [filesDeleted, setFilesDeleted] = useState(false); // New state to hide all content if files are missing
 
 function extractAfterFiles(url) {
     return url.split('files/')[1];
@@ -34,15 +35,17 @@ function extractAfterFiles(url) {
       console.error('Error deleting files:', error);
     }
   };
-
-   const checkFiles = async (ids) => {
+  const handleImageError = () => {
+    // Called if any image fails to load
+    setFilesDeleted(true);
+  };
+  const checkImageExists = async (url) => {
     try {
-      console.log('check 1');
-      const datacheck = await pinata.gateways.get(ids,);
-      console.log(datacheck);
-      console.log('check 2');
+      const response = await fetch(url, { method: "HEAD" });
+      return response.ok; // Returns true if the image exists
     } catch (error) {
-      console.error('Error check\ing files:', error);
+      console.error("Error checking image:", error);
+      return false;
     }
   };
 	 
@@ -103,7 +106,6 @@ function extractAfterFiles(url) {
                 cid: cid,
                 expires: 3000, // Number of seconds link is valid for
             });
-	    checkFiles(signedUrl);
             return signedUrl;
         })
     );
@@ -139,7 +141,16 @@ updateImageUrls(data);
     setLoadingx(false);
   }, [jsonUrl]);
 
-
+if (filesDeleted) {
+    // Show this notice and hide all other content if any image fails to load
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-red-500 to-red-800 text-white py-4 px-8 rounded-lg shadow-lg">
+          Файлы были удалены и больше недоступны.
+        </h1>
+      </div>
+    );
+  }
   if (error) {
     return <div className="text-center text-red-500">Error: {error}</div>;
   }
@@ -229,6 +240,7 @@ updateImageUrls(data);
               src={url}
               alt={`Gallery Image ${index + 1}`}
               className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity duration-200"
+	      onError={handleImageError}
             />
           </div>
         ))}
