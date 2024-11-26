@@ -179,7 +179,7 @@ if (filesDeleted) {
         <div className="flex flex-[0.5] justify-center items-center">
           {/* "PhotoBunker" as a button-like text */}
         <a href="/">
-          <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 shadow-lg hover:opacity-75">
+          <div className="flex items-center space-x-2 rounded-lg cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 shadow-lg hover:opacity-75">
             <span className="text-2xl font-semibold">PhotoBunker</span>
             {/* Upload Icon SVG */}
             <svg
