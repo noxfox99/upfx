@@ -24,7 +24,33 @@ function extractAfterFiles(url) {
     return url.split('files/')[1];
 }
 
+ // Function to unpin file from Pinata
+  const unpinFile = async (cid) => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${PINATA_SECRET_API_KEY}`,
+      },
+    };
 
+    try {
+      const response = await fetch(
+        `https://api.pinata.cloud/pinning/unpin/${cid}`,
+        options
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to unpin CID: ${cid}`);
+      }
+
+      const result = await response.json();
+      console.log(`File with CID: ${cid} unpinned successfully`, result);
+    } catch (error) {
+      console.error("Error unpinning file:", error);
+    }
+  };
+
+  
   useEffect(() => {
      const timer = setTimeout(() => {
       setLoading(false);
@@ -45,7 +71,7 @@ function extractAfterFiles(url) {
   expires: 3000, // Number of seconds link is valid for
 });
 
-        console.log(urlx);
+  console.log(urlx);
   console.log('bbbbb');
   const corsProxy = 'https://api.allorigins.win/get?url=';
   const proxiedUrl = `${corsProxy}${encodeURIComponent(urlx)}`;
@@ -80,8 +106,10 @@ function extractAfterFiles(url) {
             return signedUrl;
         })
     );
-    
     setImageUrls(imageUrls); // Set the array of signed URLs
+    if (data.timex === 3) {
+              await unpinFile(cid);
+            }
 }
 setDescrx(data.description);
 updateImageUrls(data);
