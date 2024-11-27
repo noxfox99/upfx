@@ -553,13 +553,14 @@ style={{
 
              <button
   onClick={handleCopyUrl}
-  className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600"
+  className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600 flex items-center"
   style={{ display: "inline-block", whiteSpace: "nowrap" }} // Ensures proper alignment
 >
   {/* SVG Icon */}
   <svg
-    width="20px"
-    height="20px"
+    style={{ display: "inline-block", whiteSpace: "nowrap" }}
+    width="15px"
+    height="15px"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
