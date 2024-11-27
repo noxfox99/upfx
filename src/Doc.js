@@ -30,7 +30,7 @@ const UploadServicedoc = () => {
   const [textContent, setTextContent] = useState(""); // State to hold user input
   const [uploadStatus, setUploadStatus] = useState(null); // State to track upload status
 
-  const handleCreateAndUpload = async () => {
+  const handleCreateAndUpload = async (pinata) => {
     if (!textContent.trim()) {
       alert("Введите текст перед загрузкой!");
       return;
@@ -38,13 +38,16 @@ const UploadServicedoc = () => {
 
     try {
       // Create a .txt file from the input
+            console.log(start);
+
       const file = new File([textContent], "UserInput.txt", { type: "text/plain" });
 
       // Upload the file to Pinata
       const upload = await pinata.upload.file(file);
+      
       console.log(upload);
       // Handle success
-      setUploadStatus(`Файл успешно загружен: ${upload.IpfsHash}`);
+      setUploadStatus(`Файл успешно загружен: `);
     } catch (error) {
       console.error("Ошибка загрузки файла:", error);
       setUploadStatus("Ошибка при загрузке файла. Попробуйте снова.");
