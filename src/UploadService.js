@@ -553,14 +553,14 @@ style={{
 
              <button
   onClick={handleCopyUrl}
-  className="w-full p-2 text-sm bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white rounded-lg shadow-md transition duration-300"
+  className="p-2 text-sm bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white rounded-lg shadow-md transition duration-300"
   style={{ display: "inline-block", whiteSpace: "nowrap" }} // Ensures proper alignment
 >
   {/* SVG Icon */}
   <svg
     style={{ display: "inline-block", whiteSpace: "nowrap" }}
-    width="15px"
-    height="15px"
+    width="20px"
+    height="20px"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
