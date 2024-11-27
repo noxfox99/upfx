@@ -103,10 +103,10 @@ const deleteFilesWithDelay = async (ids, delay) => {
  console.log(proxyUrl);
  
         const response = await fetch(proxyUrl);
-        
+        console.log(response);
 
         setContent(response);
-        //console.log(data);
+        console.log('fff');
         //setImageUrls(data.images.map(image => image.url));
     
       } catch (error) {
