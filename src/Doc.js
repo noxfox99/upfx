@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { PinataSDK } from "pinata";
 
 const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your Infura Project ID
@@ -23,7 +24,7 @@ const Doc = () => {
     try {
       // Create a .txt file from the input
     console.log('start');
-    if (!pinata || !pinata.upload || !pinata.upload.file) {
+    if (!pinata) {
       console.error("Ошибка: Pinata не настроен или отсутствует метод `upload.file`.");
       setUploadStatus("Ошибка: Сервис загрузки недоступен.");
       return;
