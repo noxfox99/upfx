@@ -40,13 +40,16 @@ const Doc = () => {
       const uploadx = await pinata.upload.file(filex);
       console.log(uploadx);
       // Handle success
-      setUploadStatus(`Файл успешно загружен: `);
+      setUploadStatus(uploadx.cid);
     } catch (error) {
       console.error("Ошибка загрузки файла:", error);
       setUploadStatus("Ошибка при загрузке файла. Попробуйте снова.");
     }
   };
-  
+   const handleCopyUrl = () => {
+    navigator.clipboard.writeText(`https://photobunker.pro/gallery?bunker=${encodeURIComponent(uploadStatus)}`);
+    alert("Ссылка скопирована в буфер обмена!");
+  };
    return (
      
     <div className="flex flex-col items-center p-1 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
@@ -75,6 +78,7 @@ const Doc = () => {
         </div>
         </div>
       </header>
+       {uploadStatus && (
       <div className="w-full max-w-lg text-center">
         <h1 className="text-2xl font-semibold mb-4">Создание Записки</h1>
         <textarea
@@ -84,6 +88,22 @@ const Doc = () => {
           placeholder="Введите ваш текст здесь..."
           className="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg"
         ></textarea>
+             <div className="mt-4">
+          <input
+            type="password"
+            placeholder="Введите пароль"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 mb-4 bg-gray-700 text-white border border-gray-600 rounded-lg"
+          />
+          <input
+            type="password"
+            placeholder="Повторите пароль"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg"
+          />
+        </div>
         <button
           onClick={handleCreateAndUpload}
           className="w-full mt-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600"
@@ -91,12 +111,78 @@ const Doc = () => {
           Создать Записку
         </button>
       </div>
-
+ )}
       {/* Upload Status */}
       {uploadStatus && (
-        <div className="mt-6 w-full max-w-lg text-center">
-          <p className="text-sm text-gray-300">{uploadStatus}</p>
+            <div className="flex items-center p-4 mt-6 border border-gray-300 bg-gray-100 rounded-lg shadow-md dark:border-gray-700 dark:bg-gray-800">
+          <div className="mr-4">
+            <QRCode value={`https://photobunker.pro/read?bunker=${encodeURIComponent(uploadStatus)}`} size={100} />
+          </div>
+          <div className="flex-1">
+            <textarea
+              readOnly
+              value={`https://photobunker.pro/read?bunker=${encodeURIComponent(uploadStatus)}`}
+              className="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded resize-none focus:outline-none dark:bg-gray-700 dark:text-white"
+            />
+            <div className="flex mt-2 space-x-2">
+          <button
+  onClick={() => window.open(`${window.location.origin}/read?bunker=${encodeURIComponent(uploadStatus)}`, '_blank')}
+  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
+>
+  Открыть Записку
+</button>
+
+             <button
+  onClick={handleCopyUrl}
+  className="p-2 text-sm bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white rounded-lg shadow-md transition duration-300"
+  style={{ display: "inline-block", whiteSpace: "nowrap" }} // Ensures proper alignment
+>
+  {/* SVG Icon */}
+  <svg
+    style={{ display: "inline-block", whiteSpace: "nowrap" }}
+    width="20px"
+    height="20px"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="mr-2" // Adds some space between the icon and text
+  >
+    <path
+      d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+    />
+    <path
+      d="M14 6.5L9 10"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M14 17.5L9 14"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+    />
+    <path
+      d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+    />
+  </svg>
+  {/* Button Text */}
+  <span>Копировать</span>
+</button>
+
+            </div>
+          </div>
         </div>
+      
       )}
  {/* Footer Section */}
       <footer className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mt-10">
