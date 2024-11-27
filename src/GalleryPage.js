@@ -132,7 +132,7 @@ const deleteFilesWithDelay = async (ids, delay) => {
               if (data.timex === 1 && data.xec) {
           const idsToDelete = data.xec.map((entry) => entry.id);
           setNoticex(data.timex); // Display notice
-          await deleteFilesWithDelay(idsToDelete,2000); // Call delete function
+          await deleteFilesWithDelay(idsToDelete,4000); // Call delete function
         }
             }
         })
