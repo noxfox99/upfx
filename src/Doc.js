@@ -84,7 +84,7 @@ const Doc = () => {
         </div>
         </div>
       </header>
-       {uploadStatus && (
+       {!uploadStatus && (
       <div className="w-full max-w-lg text-center">
         <h1 className="text-2xl font-semibold mb-4">Создание Записки</h1>
         <textarea
