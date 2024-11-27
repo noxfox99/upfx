@@ -21,6 +21,7 @@ const ReadPage = () => {
   const [Noticex, setNoticex] = useState([]);
   const [loadingx, setLoadingx] = useState(true); 
   const [filesDeleted, setFilesDeleted] = useState(false); // New state to hide all content if files are missing
+  const [content, setContent] = useState(false); // New state to hide all content if files are missing
 
 function extractAfterFiles(url) {
     return url.split('files/')[1];
@@ -102,51 +103,12 @@ const deleteFilesWithDelay = async (ids, delay) => {
  console.log(proxyUrl);
  
         const response = await fetch(proxyUrl);
-        const datax = await response.json();
-        console.log('vvvvv');
-        console.log(datax);
-        if (!response.ok) throw new Error('Network response was not OK');
-        console.log('ggggg');
-        //console.log(response);
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          throw new Error("Received data is not in JSON format");
-        }
+        
 
-        const data = datax;
+        setContent(content);
         //console.log(data);
         //setImageUrls(data.images.map(image => image.url));
     
-    async function updateImageUrls(data) {
-    const imageUrls = await Promise.all(
-        data.images.map(async (image) => {
-            const cid = extractAfterFiles(image.url); // Extract the CID from image URL
-            const signedUrl = await pinata.gateways.createSignedURL({
-                cid: cid,
-                expires: 3000, // Number of seconds link is valid for
-            });
-            return signedUrl;
-        })
-    );
-    setImageUrls(imageUrls); // Set the array of signed URLs
-        const imageUrlsx = await Promise.all(
-        data.images.map(async (imagex) => {
-            const cidx = extractAfterFiles(imagex.url); // Extract the CID from image URL
-	    
-     if (data.timex === 1) {
-	      
-              //setNoticex(data.timex);
-              if (data.timex === 1 && data.xec) {
-          const idsToDelete = data.xec.map((entry) => entry.id);
-          setNoticex(data.timex); // Display notice
-          await deleteFilesWithDelay(idsToDelete,4000); // Call delete function
-        }
-            }
-        })
-    );
-}
-setDescrx(data.description);
-updateImageUrls(data);
       } catch (error) {
         console.error('Error fetching gallery data:', error);
         setError(error.message);
@@ -156,7 +118,7 @@ updateImageUrls(data);
       }
     };
 //return () => clearTimeout(timer); // Cleanup timer
-    fetchData();
+   // fetchData();
     setLoadingx(false);
   }, [jsonUrl]);
 
@@ -260,26 +222,17 @@ if (filesDeleted) {
     </div>
  )}
       <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {imageUrls.map((url, index) => (
-          <div key={index} className="relative">
-            <img
-              src={url}
-              alt={`Gallery Image ${index + 1}`}
-              className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity duration-200"
-	      onError={handleImageError}
-            />
-          </div>
-        ))}
+         <textarea
+        value={content}
+        readOnly
+        className="w-full max-w-lg p-4 text-sm text-gray-100 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+        rows="6"
+      ></textarea>
       </div>
       {/* Example Text Section */}
 
    {/* Example Text Section */}
-      <section className="w-full p-6 bg-gradient-to-r mt-2 from-gray-800 to-gray-700 text-center mb-6">
-        <h2 className="text-1xl font-semibold mb-2">Комментарий</h2>
-        <p className="text-md text-gray-300">
-        {descrx}
-        </p>
-      </section>
+  
       {/* Advertising Section */}
       <section className="w-full p-8 bg-gradient-to-r from-indigo-700 to-purple-800 text-center rounded-lg mb-6 shadow-lg">
         <h2 className="text-3xl font-bold mb-4 text-white">ФОТО БУНКЕР</h2>
