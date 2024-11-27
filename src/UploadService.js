@@ -172,7 +172,7 @@ const handleFileChange = async (event) => {
   };
   
     const handleCopyUrl = () => {
-    navigator.clipboard.writeText(galleryJsonUrl);
+    navigator.clipboard.writeText(`https://photobunker.pro/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`);
     alert("Ссылка скопирована в буфер обмена!");
   };
 
