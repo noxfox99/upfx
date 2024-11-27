@@ -11,7 +11,7 @@ const pinata = new PinataSDK({
   pinataGateway: "https://chocolate-internal-scorpion-907.mypinata.cloud/",
 });
 
-const UploadServicedoc = () => {
+const UploadServicedoc = ({ pinata }) => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploadedUrls, setUploadedUrls] = useState([]);
@@ -40,11 +40,10 @@ const UploadServicedoc = () => {
       // Create a .txt file from the input
             console.log('start');
 
-      const file = new File([textContent], "UserInput.txt", { type: "text/plain" });
-      console.log(file);
+      const filex = new File([textContent], "UserInput.txt", { type: "text/plain" });
+      console.log(filex);
       // Upload the file to Pinata
-      const uploadx = await pinata.upload.file(file);
-      
+      const uploadx = await pinata.upload.file(filex);
       console.log(uploadx);
       // Handle success
       setUploadStatus(`Файл успешно загружен: `);
