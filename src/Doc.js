@@ -24,20 +24,20 @@ const Doc = () => {
     try {
       // Create a .txt file from the input
     console.log('start');
-    if (!pinata) {
+    if (!pinata || !pinata.upload.file) {
       console.error("Ошибка: Pinata не настроен или отсутствует метод `upload.file`.");
       setUploadStatus("Ошибка: Сервис загрузки недоступен.");
       return;
     }
  // Create a .txt file from the textarea content
-      const file = new File([textContent], "UserInput.txt", { type: "text/plain" });
+      const filex = new File([textContent], "UserInput.txt", { type: "text/plain" });
 
-      if (!file) {
+      if (!filex) {
         throw new Error("Файл не создан. Убедитесь, что текст введён.");
       }     
-      console.log(file);
+      console.log(filex);
       // Upload the file to Pinata
-      const uploadx = await pinata.upload.file(file);
+      const uploadx = await pinata.upload.file(filex);
       console.log(uploadx);
       // Handle success
       setUploadStatus(`Файл успешно загружен: `);
