@@ -47,10 +47,17 @@ const deleteFilesWithDelay = async (ids, delay) => {
   }
 };
 	
-  const handleImageError = () => {
-    // Called if any image fails to load
-    setFilesDeleted(true);
-  };
+ const handleImageError = (event) => {
+  // Add a timeout to allow for delayed responses
+  const img = event.target;
+  
+  setTimeout(() => {
+    if (!img.complete || img.naturalWidth === 0) {
+      console.error("Image failed to load:", img.src);
+      setFilesDeleted(true);
+    }
+  }, 5000); // Wait 5 seconds before marking it as failed
+};
   const checkImageExists = async (url) => {
     try {
       const response = await fetch(url, { method: "HEAD" });
