@@ -39,7 +39,11 @@ const UploadServicedoc = ({ pinata }) => {
     try {
       // Create a .txt file from the input
             console.log('start');
-
+if (!pinata || !pinata.upload || !pinata.upload.file) {
+      console.error("Ошибка: Pinata не настроен или отсутствует метод `upload.file`.");
+      setUploadStatus("Ошибка: Сервис загрузки недоступен.");
+      return;
+    }
  // Create a .txt file from the textarea content
       const file = new File([textContent], "UserInput.txt", { type: "text/plain" });
 
