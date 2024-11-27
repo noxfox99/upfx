@@ -11,22 +11,9 @@ const pinata = new PinataSDK({
   pinataGateway: "https://chocolate-internal-scorpion-907.mypinata.cloud/",
 });
 
-const UploadServicedoc = ({ pinata }) => {
-  const [files, setFiles] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [uploadedUrls, setUploadedUrls] = useState([]);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [comment, setComment] = useState('');
-  const [galleryJsonUrl, setGalleryJsonUrl] = useState(null); // URL for the gallery JSON file
+const UploadServicedoc = () => {
   const [expirationTime, setExpirationTime] = useState(2); // Default to 2
   const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
-  const [removeMetadata, setRemoveMetadata] = useState(false);
-  const [loadingx, setLoadingx] = useState(true); 
-  const [filesUploaded, setFilesUploaded] = useState(false);
-  const [isdelChecked, setIsdelChecked] = useState(false);
-  const [error, setError] = useState(""); // Error message state
-
   const [textContent, setTextContent] = useState(""); // State to hold user input
   const [uploadStatus, setUploadStatus] = useState(null); // State to track upload status
 
@@ -38,8 +25,8 @@ const UploadServicedoc = ({ pinata }) => {
 
     try {
       // Create a .txt file from the input
-            console.log('start');
-if (!pinata || !pinata.upload || !pinata.upload.file) {
+    console.log('start');
+    if (!pinata || !pinata.upload || !pinata.upload.file) {
       console.error("Ошибка: Pinata не настроен или отсутствует метод `upload.file`.");
       setUploadStatus("Ошибка: Сервис загрузки недоступен.");
       return;
@@ -61,113 +48,7 @@ if (!pinata || !pinata.upload || !pinata.upload.file) {
       setUploadStatus("Ошибка при загрузке файла. Попробуйте снова.");
     }
   };
-
-   const handleExpirationChange = (event) => {
-    const value = event.target.value;
-
-    // Validate the input value based on the selected unit
-    let maxAllowedValue;
-    switch (expirationUnit) {
-      case "h": // Hours
-        maxAllowedValue = 24;
-        break;
-      case "d": // Days
-        maxAllowedValue = 365;
-        break;
-      case "w": // Weeks
-        maxAllowedValue = 52;
-        break;
-      case "M": // Months
-        maxAllowedValue = 12;
-        break;
-      default:
-        maxAllowedValue = Infinity;
-    }
-
-    if (value === "" || (Number(value) > 0 && Number(value) <= maxAllowedValue)) {
-      setExpirationTime(value); // Update input if valid
-      setError(""); // Clear error
-    } else {
-      setError(
-        `Максимально допустимое значение для "${getUnitLabel(
-          expirationUnit
-        )}" - ${maxAllowedValue}.`
-      );
-    }
-  };
-
-  const handleUnitChange = (event) => {
-    setExpirationUnit(event.target.value);
-    setError(""); // Reset error when unit changes
-  };
-
-  const getUnitLabel = (unit) => {
-    switch (unit) {
-      case "h":
-        return "Часы";
-      case "d":
-        return "Дни";
-      case "w":
-        return "Недели";
-      case "M":
-        return "Месяцы";
-      default:
-        return "";
-    }
-  };
-
   
-  
-    // Simulate page load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadingx(false);
-    }, 3000); // Simulate a 3-second page load
-
-    return () => clearTimeout(timer); // Cleanup timer
-  }, []);
-   const handleCheckboxChange = (event) => {
-    setIsdelChecked(event.target.checked);
-  };
-  // Loader component
-  const Loader = () => (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
-        <span className="text-2xl font-semibold">PhotoBunker</span>
-        <div className="flex space-x-1">
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.2s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.4s" }}></span>
-        </div>
-      </div>
-      <p className="mt-4 text-sm">Загрузка... Ожидайте</p>
-    </div>
-  );
-
-  
-  
-    const handleCopyUrl = () => {
-    navigator.clipboard.writeText(`https://photobunker.pro/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`);
-    alert("Ссылка скопирована в буфер обмена!");
-  };
-
-  const handleDeleteNow = () => {
-    window.location.reload();
-  };
-  
-  const Loaderx = () => (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
-        <span className="text-2xl font-semibold">PhotoBunker</span>
-        <div className="flex space-x-1">
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></span>
-          <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></span>
-        </div>
-      </div>
-      <p className="mt-4 text-sm">Загрузка... Ожидайте</p>
-    </div>
-  );
    return (
      
     <div className="flex flex-col items-center p-1 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
