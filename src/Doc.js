@@ -8,7 +8,7 @@ const pinata = new PinataSDK({
   pinataGateway: "https://chocolate-internal-scorpion-907.mypinata.cloud/",
 });
 
-const UploadServicedoc = () => {
+const Doc = () => {
   const [expirationTime, setExpirationTime] = useState(2); // Default to 2
   const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
   const [textContent, setTextContent] = useState(""); // State to hold user input
@@ -142,4 +142,4 @@ const UploadServicedoc = () => {
   );
 };
 
-export default UploadServicedoc;
+export default Doc;
