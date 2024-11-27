@@ -551,12 +551,51 @@ style={{
   Открыть галерею
 </button>
 
-              <button
-                onClick={handleDeleteNow}
-                className="px-4 py-2 text-sm font-semibold text-white bg-red-500 rounded hover:bg-red-600"
-              >
-                На Главную
-              </button>
+             <button
+  onClick={handleCopyUrl}
+  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300"
+>
+  {/* SVG Icon */}
+  <svg
+    width="20px"
+    height="20px"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="mr-2" // Adds some space between the icon and text
+  >
+    <path
+      d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+    />
+    <path
+      d="M14 6.5L9 10"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M14 17.5L9 14"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+    />
+    <path
+      d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z"
+      stroke="#1C274C"
+      strokeWidth="1.5"
+    />
+  </svg>
+  {/* Button Text */}
+  <span>Копировать</span>
+</button>
+
             </div>
           </div>
         </div>
