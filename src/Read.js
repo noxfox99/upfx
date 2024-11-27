@@ -118,7 +118,7 @@ const deleteFilesWithDelay = async (ids, delay) => {
       }
     };
 //return () => clearTimeout(timer); // Cleanup timer
-   // fetchData();
+    fetchData();
     setLoadingx(false);
   }, [jsonUrl]);
 
