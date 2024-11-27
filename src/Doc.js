@@ -40,10 +40,15 @@ const UploadServicedoc = ({ pinata }) => {
       // Create a .txt file from the input
             console.log('start');
 
-      const filex = new File([textContent], "UserInput.txt", { type: "text/plain" });
-      console.log(filex);
+ // Create a .txt file from the textarea content
+      const file = new File([textContent], "UserInput.txt", { type: "text/plain" });
+
+      if (!file) {
+        throw new Error("Файл не создан. Убедитесь, что текст введён.");
+      }     
+      console.log(file);
       // Upload the file to Pinata
-      const uploadx = await pinata.upload.file(filex);
+      const uploadx = await pinata.upload.file(file);
       console.log(uploadx);
       // Handle success
       setUploadStatus(`Файл успешно загружен: `);
