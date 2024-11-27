@@ -21,7 +21,7 @@ const ReadPage = () => {
   const [Noticex, setNoticex] = useState([]);
   const [loadingx, setLoadingx] = useState(true); 
   const [filesDeleted, setFilesDeleted] = useState(false); // New state to hide all content if files are missing
-  const [content, setContent] = useState(false); // New state to hide all content if files are missing
+  const [content, setContent] = useState([]); // New state to hide all content if files are missing
 
 function extractAfterFiles(url) {
     return url.split('files/')[1];
@@ -105,7 +105,7 @@ const deleteFilesWithDelay = async (ids, delay) => {
         const response = await fetch(proxyUrl);
         
 
-        setContent(content);
+        setContent(response);
         //console.log(data);
         //setImageUrls(data.images.map(image => image.url));
     
