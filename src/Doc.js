@@ -38,10 +38,10 @@ const UploadServicedoc = () => {
 
     try {
       // Create a .txt file from the input
-            console.log(start);
+            console.log('start');
 
       const file = new File([textContent], "UserInput.txt", { type: "text/plain" });
-
+console.log(file);
       // Upload the file to Pinata
       const upload = await pinata.upload.file(file);
       
