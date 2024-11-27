@@ -35,6 +35,18 @@ function extractAfterFiles(url) {
       console.error('Error deleting files:', error);
     }
   };
+
+const deleteFilesWithDelay = async (ids, delay) => {
+  try {
+    console.log(`Waiting ${delay}ms before deleting files...`);
+    await new Promise((resolve) => setTimeout(resolve, delay)); // Wait for the specified delay
+    const deletedFiles = await pinata.files.delete(ids);
+    console.log("Deleted files:", deletedFiles);
+  } catch (error) {
+    console.error("Error deleting files:", error);
+  }
+};
+	
   const handleImageError = () => {
     // Called if any image fails to load
     setFilesDeleted(true);
@@ -120,7 +132,7 @@ function extractAfterFiles(url) {
               if (data.timex === 1 && data.xec) {
           const idsToDelete = data.xec.map((entry) => entry.id);
           setNoticex(data.timex); // Display notice
-          await deleteFiles(idsToDelete); // Call delete function
+          await deleteFilesWithDelay(idsToDelete,5000); // Call delete function
         }
             }
         })
