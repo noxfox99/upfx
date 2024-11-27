@@ -208,7 +208,6 @@ const UploadServicedoc = () => {
           <p className="text-sm text-gray-300">{uploadStatus}</p>
         </div>
       )}
-    </div>
  {/* Footer Section */}
       <footer className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gradient-to-r from-gray-700 to-gray-900 mt-10">
         <div className="w-full flex sm:flex-row flex-col justify-between items-center my-4">
@@ -250,6 +249,7 @@ const UploadServicedoc = () => {
           <p className="text-white text-right text-xs">All rights reserved</p>
         </div>
       </footer>
+    </div>
   );
 };
 
