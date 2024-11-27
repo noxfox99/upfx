@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UploadService from './UploadService';
 import GalleryPage from './GalleryPage';
 import Doc from './Doc';
+import ReadPage from './Read';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<UploadService />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/doc" element={<Doc />} />
+        <Route path="/read" element={<ReadPage />} />
       </Routes>
     </Router>
   );
