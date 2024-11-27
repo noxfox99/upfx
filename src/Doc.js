@@ -42,7 +42,7 @@ const UploadServicedoc = () => {
 
       // Upload the file to Pinata
       const upload = await pinata.upload.file(file);
-
+      console.log(upload);
       // Handle success
       setUploadStatus(`Файл успешно загружен: ${upload.IpfsHash}`);
     } catch (error) {
