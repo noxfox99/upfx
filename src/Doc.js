@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PinataSDK } from "pinata";
+import QRCode from 'qrcode.react'; // Импортируем компонент QRCode
 
 const PINATA_API_KEY = 'd89b13f00fa146e1aa418ab686628494';  // Replace with your Infura Project ID
 const PINATA_SECRET_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI4ZWY3N2NlNC1lYjRkLTQ3NmQtYjc3ZC0yZjQwMWQwZTdhMmMiLCJlbWFpbCI6InNxYWltZXNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjY1YmJiYmI3YzJjMjE1NGI3YzIwIiwic2NvcGVkS2V5U2VjcmV0IjoiZTdjZDA4ZTZkZGQyNGM4NzEyZTgwZmIzMjgzNDU4MjBlZTYxNWEwNTFlNjViMTViZTdlMTgwNDFmZTczMmM2YyIsImV4cCI6MTc2MjQ1NTExM30.PC3g9CarhHwxVynKXoqQwsqC9qZoEEKZdm2EY0L7HZk';  // Replace with your Infura Project Secret
@@ -14,13 +15,18 @@ const Doc = () => {
   const [expirationUnit, setExpirationUnit] = useState('d'); // Default to days
   const [textContent, setTextContent] = useState(""); // State to hold user input
   const [uploadStatus, setUploadStatus] = useState(null); // State to track upload status
+  const [password, setPassword] = useState(""); // State for password input
+  const [confirmPassword, setConfirmPassword] = useState(""); // State for confirming password
 
   const handleCreateAndUpload = async () => {
     if (!textContent.trim()) {
       alert("Введите текст перед загрузкой!");
       return;
     }
-
+   if (password !== confirmPassword) {
+      alert("Пароли не совпадают!");
+      return;
+    }
     try {
       // Create a .txt file from the input
     console.log('start');
