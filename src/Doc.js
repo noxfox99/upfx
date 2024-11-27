@@ -15,7 +15,7 @@ const Doc = () => {
   const [textContent, setTextContent] = useState(""); // State to hold user input
   const [uploadStatus, setUploadStatus] = useState(null); // State to track upload status
 
-  const handleCreateAndUpload = async (pinata) => {
+  const handleCreateAndUpload = async () => {
     if (!textContent.trim()) {
       alert("Введите текст перед загрузкой!");
       return;
