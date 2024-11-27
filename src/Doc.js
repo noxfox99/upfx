@@ -41,11 +41,11 @@ const UploadServicedoc = () => {
             console.log('start');
 
       const file = new File([textContent], "UserInput.txt", { type: "text/plain" });
-console.log(file);
+      console.log(file);
       // Upload the file to Pinata
-      const upload = await pinata.upload.file(file);
+      const uploadx = await pinata.upload.file(file);
       
-      console.log(upload);
+      console.log(uploadx);
       // Handle success
       setUploadStatus(`Файл успешно загружен: `);
     } catch (error) {
