@@ -8,7 +8,7 @@ const PINATA_API_KEY = 'cff8d52fcfc4d4b8bb79';  // Replace with your Infura Proj
 const PINATA_SECRET_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJlZGE3OTU1ZS01NThhLTQ0YjItYmUwYS0xMmE5NTRhYmYxZGMiLCJlbWFpbCI6InJvaW92ZXJAcHJvdG9uLm1lIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImNmZjhkNTJmY2ZjNGQ0YjhiYjc5Iiwic2NvcGVkS2V5U2VjcmV0IjoiZmY4NmJlMzlhNzE0YjQ5YjI4Zjc2ZmMwOTMwMmIyYjllYTFkNTljYTJjYmMzNWNmYzA3YzA5OTZmMDc2OGJhOCIsImV4cCI6MTc2NDQxMDgxOH0.wjikbUXDoICf-_tM51J5-OW4I-BqfFAXrfxdU7o4JSg';  // Replace with your Infura Project Secret
 const pinata = new PinataSDK({
   pinataJwt: PINATA_SECRET_API_KEY,
-  pinataGateway: "magenta-able-dormouse-779.mypinata.cloud",
+  pinataGateway: "https://magenta-able-dormouse-779.mypinata.cloud/",
 });
 const compressAndRemoveMetadata = async (file) => {
   const options = {
