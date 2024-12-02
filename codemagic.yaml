@@ -1,6 +1,10 @@
 workflows:
   build_apk:
     name: Build APK
+    environment:
+      vars:
+        EXPO_USERNAME: $EXPO_USERNAME
+        EXPO_PASSWORD: $EXPO_PASSWORD
     scripts:
       - name: Install dependencies
         script: |
@@ -9,9 +13,13 @@ workflows:
           else
             npm install
           fi
+      - name: Install expo-cli
+        script: npm install -g expo-cli
+      - name: Expo Login
+        script: expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
       - name: Install EAS CLI
         script: npm install -g eas-cli
-      - name: Build APK
+      - name: Build Android APK
         script: eas build -p android
     artifacts:
       - '*.apk'
