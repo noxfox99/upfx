@@ -1,9 +1,16 @@
 workflows:
-  managed_workflow:
-    name: Build Managed Workflow
+  build_apk:
+    name: Build APK
     scripts:
       - name: Install dependencies
-        script: npm install
+        script: |
+          if [ -f yarn.lock ]; then
+            yarn install
+          else
+            npm install
+          fi
+      - name: Install EAS CLI
+        script: npm install -g eas-cli
       - name: Build APK
         script: eas build -p android
     artifacts:
