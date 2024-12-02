@@ -3,8 +3,8 @@ workflows:
     name: Build APK
     environment:
       vars:
-        EXPO_USERNAME: $EXPO_USERNAME
-        EXPO_PASSWORD: $EXPO_PASSWORD
+        EXPO_USERNAME: arina051488@gmail.com
+        EXPO_PASSWORD: Thenewt75!
     scripts:
       - name: Install dependencies
         script: |
