@@ -1,1 +1,27 @@
+workflows:
+  react_native_build:
+    name: Build React Native App
+    max_build_duration: 60 # Minutes
+    scripts:
+      # Install dependencies
+      - name: Install dependencies
+        script: |
+          if [ -f yarn.lock ]; then
+            yarn install
+          else
+            npm install
+          fi
 
+      # Build Android APK
+      - name: Build Android APK
+        script: |
+          cd android
+          ./gradlew clean
+          ./gradlew assembleRelease
+
+    artifacts:
+      - build/android/app/build/outputs/apk/release/app-release.apk
+
+    environment:
+      vars:
+        NODE_VERSION: "16"
