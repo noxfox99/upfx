@@ -20,7 +20,7 @@ workflows:
           ./gradlew assembleRelease
 
     artifacts:
-      - build/android/app/build/outputs/apk/release/app-release.apk
+      - '*.apk'
 
     environment:
       vars:
