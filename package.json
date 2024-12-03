@@ -2,6 +2,7 @@
   "name": "ipfs-file-upload",
   "version": "0.1.0",
   "private": true,
+  "main":  "./src/App.js",
   "dependencies": {
     "@pinata/sdk": "^2.1.0",
     "axios": "^1.7.7",
