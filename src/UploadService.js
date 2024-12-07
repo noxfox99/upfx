@@ -113,7 +113,7 @@ const UploadService = () => {
   const Loader = () => (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
-        <span className="text-2xl font-semibold">PhotoBunker</span>
+        <span className="text-2xl font-semibold">X Image</span>
         <div className="flex space-x-1">
           <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
           <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.2s" }}></span>
@@ -231,7 +231,7 @@ const handleUpload = async () => {
   const Loaderx = () => (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
-        <span className="text-2xl font-semibold">PhotoBunker</span>
+        <span className="text-2xl font-semibold">X</span>
         <div className="flex space-x-1">
           <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
           <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></span>
@@ -254,7 +254,7 @@ const handleUpload = async () => {
           {/* "PhotoBunker" as a button-like text */}
           <a href="/">
           <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
-            <span className="text-2xl font-semibold">PhotoBunker</span>
+            <span className="text-2xl font-semibold">X</span>
             {/* Upload Icon SVG */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -540,7 +540,7 @@ style={{
           <div className="flex-1">
             <textarea
               readOnly
-              value={`https://photobunker.pro/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`}
+              value={`https://upfx.vercel.app/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`}
               className="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded resize-none focus:outline-none dark:bg-gray-700 dark:text-white"
             />
             <div className="flex mt-2 space-x-2">
@@ -824,7 +824,7 @@ style={{
                 d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z"
               ></path>
             </svg>
-                        <p className="text-white text-4xl sm:text-5xl py-2 text-gradient">Фото Бункер</p>
+                        <p className="text-white text-4xl sm:text-5xl py-2 text-gradient">X</p>
 
           </div>
           </div>
@@ -834,11 +834,11 @@ style={{
         </div>
         <div className="flex justify-center items-center flex-col mt-5">
           <p className="text-white text-sm text-center">Бесплатное хранилище нового поколения для ваших медиафайлов</p>
-          <p className="text-white text-sm text-center font-medium mt-2">support@photobunker.pro</p>
+          <p className="text-white text-sm text-center font-medium mt-2">support@x.pro</p>
         </div>
         <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 "></div>
         <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
-          <p className="text-white text-left text-xs">Фото Бункер 2024</p>
+          <p className="text-white text-left text-xs">X 2024</p>
           <p className="text-white text-right text-xs">All rights reserved</p>
         </div>
       </footer>
