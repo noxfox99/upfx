@@ -13,7 +13,7 @@ const pinata = new PinataSDK({
 const GalleryPage = () => {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  const jsonUrl = params.get('bunker');
+  const jsonUrl = params.get('x');
   const [imageUrls, setImageUrls] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
