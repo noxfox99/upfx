@@ -184,7 +184,7 @@ if (filesDeleted) {
   const Loader = () => (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg">
-        <span className="text-2xl font-semibold">PhotoBunker</span>
+        <span className="text-2xl font-semibold">X</span>
         <div className="flex space-x-1">
           <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0s" }}></span>
           <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "1.2s" }}></span>
@@ -206,7 +206,7 @@ if (filesDeleted) {
           {/* "PhotoBunker" as a button-like text */}
         <a href="/">
           <div className="flex items-center space-x-2 rounded-lg cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 shadow-lg hover:opacity-75">
-            <span className="text-2xl font-semibold">PhotoBunker</span>
+            <span className="text-2xl font-semibold">X</span>
             {/* Upload Icon SVG */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +282,7 @@ if (filesDeleted) {
       </section>
       {/* Advertising Section */}
       <section className="w-full p-8 bg-gradient-to-r from-indigo-700 to-purple-800 text-center rounded-lg mb-6 shadow-lg">
-        <h2 className="text-3xl font-bold mb-4 text-white">ФОТО БУНКЕР</h2>
+        <h2 className="text-3xl font-bold mb-4 text-white">X</h2>
         <p className="text-lg text-gray-200 mb-6">
           Присоединяйтесь к нашему сервису и получайте доступ к безопасному и анонимному хранению изображений.
         </p>
