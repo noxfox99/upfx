@@ -292,7 +292,7 @@ if (filesDeleted) {
       </section>
       {/* Footer */}
       <footer className="w-full p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-center">
-        <p className="text-sm">Powered by PhotoBunker | Secure & Anonymous Storage</p>
+        <p className="text-sm">Powered by X | Secure & Anonymous Storage</p>
       </footer>
     </div>
    )}
