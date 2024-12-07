@@ -535,12 +535,12 @@ style={{
  {galleryJsonUrl && (
         <div className="flex items-center p-4 mt-6 border border-gray-300 bg-gray-100 rounded-lg shadow-md dark:border-gray-700 dark:bg-gray-800">
           <div className="mr-4">
-            <QRCode value={`https://photobunker.pro/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`} size={100} />
+            <QRCode value={`https://upfx.vercel.app/gallery?x=${encodeURIComponent(galleryJsonUrl)}`} size={100} />
           </div>
           <div className="flex-1">
             <textarea
               readOnly
-              value={`https://upfx.vercel.app/gallery?bunker=${encodeURIComponent(galleryJsonUrl)}`}
+              value={`https://upfx.vercel.app/gallery?x=${encodeURIComponent(galleryJsonUrl)}`}
               className="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded resize-none focus:outline-none dark:bg-gray-700 dark:text-white"
             />
             <div className="flex mt-2 space-x-2">
