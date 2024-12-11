@@ -272,7 +272,7 @@ const handleUpload = async () => {
           </div></a>
         </div>
            <div className="flex flex-[0.1] justify-end items-center">
-    <a href="https://t.me/your_telegram_channel" target="_blank" rel="noopener noreferrer">
+    <a href="https://t.me/photobunker_bot" target="_blank" rel="noopener noreferrer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-label="Telegram"
@@ -851,6 +851,24 @@ style={{
           <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full ">
           </div>
         </div>
+                   <div className="flex flex-[0.1] justify-end items-center">
+    <a href="https://t.me/photobunker_bot" target="_blank" rel="noopener noreferrer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="Telegram"
+        viewBox="0 0 512 512"
+        className="w-8 h-8 cursor-pointer hover:opacity-75"
+      >
+        <rect width="512" height="512" fill="#37aee2" rx="15%"></rect>
+        <path fill="#c8daea" d="M199 404c-11 0-10-4-13-14l-32-105 245-144"></path>
+        <path fill="#a9c9dd" d="M199 404c7 0 11-4 16-8l45-43-56-34"></path>
+        <path
+          fill="#f6fbfe"
+          d="M204 319l135 99c14 9 26 4 30-14l55-258c5-22-9-32-24-25L79 245c-21 8-21 21-4 26l83 26 190-121c9-5 17-3 11 4"
+        ></path>
+      </svg>
+    </a>
+  </div>      
         <div className="flex justify-center items-center flex-col mt-5">
           <p className="text-white text-sm text-center">Бесплатное хранилище нового поколения для ваших медиафайлов</p>
           <p className="text-white text-sm text-center font-medium mt-2">support@x.pro</p>
