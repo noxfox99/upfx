@@ -271,77 +271,24 @@ const handleUpload = async () => {
             </svg>
           </div></a>
         </div>
-                   <div className="flex flex-[0.1] justify-end items-center">
+           <div className="flex flex-[0.1] justify-end items-center">
     <a href="https://t.me/your_telegram_channel" target="_blank" rel="noopener noreferrer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        className="w-8 h-8 text-blue-500 hover:text-blue-700 cursor-pointer"
+        aria-label="Telegram"
+        viewBox="0 0 512 512"
+        className="w-8 h-8 cursor-pointer hover:opacity-75"
       >
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12C24 5.373 18.627 0 12 0zm5.524 7.487L17.04 16.23c-.144.634-.523.788-1.061.488l-3.002-2.213-1.446 1.389c-.16.16-.295.295-.602.295l.216-3.068 5.59-5.056c.244-.216-.055-.334-.377-.12l-6.897 4.34-2.974-.931c-.648-.2-.66-.648.135-.96L16.755 6.46c.592-.216 1.104.144.769 1.027z" />
+        <rect width="512" height="512" fill="#37aee2" rx="15%"></rect>
+        <path fill="#c8daea" d="M199 404c-11 0-10-4-13-14l-32-105 245-144"></path>
+        <path fill="#a9c9dd" d="M199 404c7 0 11-4 16-8l45-43-56-34"></path>
+        <path
+          fill="#f6fbfe"
+          d="M204 319l135 99c14 9 26 4 30-14l55-258c5-22-9-32-24-25L79 245c-21 8-21 21-4 26l83 26 190-121c9-5 17-3 11 4"
+        ></path>
       </svg>
     </a>
-  </div>
-<div className="flex flex-[0.1] justify-end items-center">
-    <a href="https://t.me/your_telegram_channel" target="_blank" rel="noopener noreferrer">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 240 240"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-6 h-6 cursor-pointer"
-      >
-        <style>
-          {`.st0{fill:url(#path2995-1-0_1_)}.st1{fill:#c8daea}.st2{fill:#a9c9dd}.st3{fill:url(#path2991_1_)}`}
-        </style>
-        <linearGradient
-          id="path2995-1-0_1_"
-          gradientUnits="userSpaceOnUse"
-          x1="-683.305"
-          y1="534.845"
-          x2="-693.305"
-          y2="511.512"
-          gradientTransform="matrix(6 0 0 -6 4255 3247)"
-        >
-          <stop offset="0" stopColor="#37aee2" />
-          <stop offset="1" stopColor="#1e96c8" />
-        </linearGradient>
-        <path
-          id="path2995-1-0"
-          className="st0"
-          d="M240 120c0 66.3-53.7 120-120 120S0 186.3 0 120 53.7 0 120 0s120 53.7 120 120z"
-        />
-        <path
-          id="path2993"
-          className="st1"
-          d="M98 175c-3.9 0-3.2-1.5-4.6-5.2L82 132.2 152.8 88l8.3 2.2-6.9 18.8L98 175z"
-        />
-        <path
-          id="path2989"
-          className="st2"
-          d="M98 175c3 0 4.3-1.4 6-3 2.6-2.5 36-35 36-35l-20.5-5-19 12-2.5 30v1z"
-        />
-        <linearGradient
-          id="path2991_1_"
-          gradientUnits="userSpaceOnUse"
-          x1="128.991"
-          y1="118.245"
-          x2="153.991"
-          y2="78.245"
-          gradientTransform="matrix(1 0 0 -1 0 242)"
-        >
-          <stop offset="0" stopColor="#eff7fc" />
-          <stop offset="1" stopColor="#ffffff" />
-        </linearGradient>
-        <path
-          id="path2991"
-          className="st3"
-          d="M100 144.4l48.4 35.7c5.5 3 9.5 1.5 10.9-5.1L179 82.2c2-8.1-3.1-11.7-8.4-9.3L55 117.5c-7.9 3.2-7.8 7.6-1.4 9.5l29.7 9.3L152 93c3.2-2 6.2-.9 3.8 1.3L100 144.4z"
-        />
-      </svg>
-    </a>
-  </div>
+  </div>        
           
         </div>
       </header>
