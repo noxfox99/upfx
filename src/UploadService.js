@@ -271,6 +271,18 @@ const handleUpload = async () => {
             </svg>
           </div></a>
         </div>
+                   <div className="flex flex-[0.1] justify-end items-center">
+    <a href="https://t.me/your_telegram_channel" target="_blank" rel="noopener noreferrer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-8 h-8 text-blue-500 hover:text-blue-700 cursor-pointer"
+      >
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12C24 5.373 18.627 0 12 0zm5.524 7.487L17.04 16.23c-.144.634-.523.788-1.061.488l-3.002-2.213-1.446 1.389c-.16.16-.295.295-.602.295l.216-3.068 5.59-5.056c.244-.216-.055-.334-.377-.12l-6.897 4.34-2.974-.931c-.648-.2-.66-.648.135-.96L16.755 6.46c.592-.216 1.104.144.769 1.027z" />
+      </svg>
+    </a>
+  </div>
         </div>
       </header>
       {!filesUploaded && ( <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>  )}
