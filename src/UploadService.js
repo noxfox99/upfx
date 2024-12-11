@@ -271,7 +271,10 @@ const handleUpload = async () => {
             </svg>
           </div></a>
         </div>
-           <div className="flex flex-[0.1] justify-end items-center">
+     
+          
+        </div>
+                         <div className="flex flex-[0.1] justify-end items-center">
     <a href="https://t.me/photobunker_bot" target="_blank" rel="noopener noreferrer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -288,9 +291,7 @@ const handleUpload = async () => {
         ></path>
       </svg>
     </a>
-  </div>        
-          
-        </div>
+  </div>       
       </header>
       {!filesUploaded && ( <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>  )}
                   {!filesUploaded && (
