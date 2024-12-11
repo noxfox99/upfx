@@ -248,6 +248,8 @@ const handleUpload = async () => {
       ) : (
     <div className="flex flex-col items-center p-1 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
       {/* Header Section */}
+             <header className="w-full flex md:justify-center justify-between items-center flex-col p-2 bg-gradient-to-r from-gray-700 to-gray-900 mb-4">
+
 <div className="flex justify-between items-center w-full sm:mt-0 mt-5">
   {/* Center Content */}
   <div className="flex flex-[0.4] justify-center items-center">
@@ -293,7 +295,7 @@ const handleUpload = async () => {
     </a>
   </div>
 </div>
-
+            </header>
       {!filesUploaded && ( <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>  )}
                   {!filesUploaded && (
       <div className="border-dashed border-4 border-white p-10 w-full max-w-lg text-center cursor-pointer bg-gray-900 rounded-lg shadow-lg hover:opacity-75 transition"
