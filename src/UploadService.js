@@ -248,33 +248,33 @@ const handleUpload = async () => {
       ) : (
     <div className="flex flex-col items-center p-1 bg-gradient-to-r from-gray-800 to-black text-white min-h-screen">
       {/* Header Section */}
-      <header className="w-full flex md:justify-center justify-between items-center flex-col p-2 bg-gradient-to-r from-gray-700 to-gray-900 mb-4">
-        <div className="flex flex-1 justify-center items-center flex-wrap sm:mt-0 mt-5 w-full ">
-        <div className="flex flex-[0.4] justify-center items-center">
-          {/* "PhotoBunker" as a button-like text */}
-          <a href="/">
-          <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
-            <span className="text-2xl font-semibold">X</span>
-            {/* Upload Icon SVG */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 40 20"
-              fill="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 3a1 1 0 011 1v6.586l3.707-3.707a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 10.586V4a1 1 0 011-1z"
-                clipRule="evenodd"
-              />
-              <path d="M10 13a7 7 0 100-14 7 7 0 000 14z" />
-            </svg>
-          </div></a>
-        </div>
-     
-          
-        </div>
-                         <div className="flex flex-[0.1] justify-end items-center">
+<div className="flex justify-between items-center w-full sm:mt-0 mt-5">
+  {/* Center Content */}
+  <div className="flex flex-[0.4] justify-center items-center">
+    {/* "PhotoBunker" as a button-like text */}
+    <a href="/">
+      <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
+        <span className="text-2xl font-semibold">X</span>
+        {/* Upload Icon SVG */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 40 20"
+          fill="currentColor"
+          className="w-6 h-6"
+        >
+          <path
+            fillRule="evenodd"
+            d="M10 3a1 1 0 011 1v6.586l3.707-3.707a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 10.586V4a1 1 0 011-1z"
+            clipRule="evenodd"
+          />
+          <path d="M10 13a7 7 0 100-14 7 7 0 000 14z" />
+        </svg>
+      </div>
+    </a>
+  </div>
+
+  {/* Right-aligned Telegram SVG */}
+  <div className="flex flex-[0.1] justify-end">
     <a href="https://t.me/photobunker_bot" target="_blank" rel="noopener noreferrer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -291,8 +291,9 @@ const handleUpload = async () => {
         ></path>
       </svg>
     </a>
-  </div>       
-      </header>
+  </div>
+</div>
+
       {!filesUploaded && ( <h1 className="text-white text-2xl sm:text-2xl py-2 text-gradient ">Загрузите файлы в IPFS</h1>  )}
                   {!filesUploaded && (
       <div className="border-dashed border-4 border-white p-10 w-full max-w-lg text-center cursor-pointer bg-gray-900 rounded-lg shadow-lg hover:opacity-75 transition"
