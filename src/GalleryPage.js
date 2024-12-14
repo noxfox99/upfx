@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PinataSDK } from "pinata";
+import Modal from 'react-modal';
 
 const PINATA_API_KEY = 'b1adb65f27feca2b1cdc';  // Replace with your Infura Project ID
 const PINATA_SECRET_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJlZGE3OTU1ZS01NThhLTQ0YjItYmUwYS0xMmE5NTRhYmYxZGMiLCJlbWFpbCI6InJvaW92ZXJAcHJvdG9uLm1lIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImIxYWRiNjVmMjdmZWNhMmIxY2RjIiwic2NvcGVkS2V5U2VjcmV0IjoiNmUzY2RjNmExNWU1YThhNWUxNTkwMmI5NGUwMWM1MjgyY2U0ODM3ODBhMWY0ZjcwMzQxYzI3NTFjYjVhNTlkZCIsImV4cCI6MTc2NDQxMjU3Nn0.FD15exn56ICeP46SOWpCXkOqpgsR1Evh9Cde9-xnUjI';  // Replace with your Infura Project Secret
@@ -21,6 +22,7 @@ const GalleryPage = () => {
   const [Noticex, setNoticex] = useState([]);
   const [loadingx, setLoadingx] = useState(true); 
   const [filesDeleted, setFilesDeleted] = useState(false); // New state to hide all content if files are missing
+  const [selectedImage, setSelectedImage] = useState(null);
 
 function extractAfterFiles(url) {
     return url.split('files/')[1];
@@ -194,6 +196,13 @@ if (filesDeleted) {
       <p className="mt-4 text-sm">Загрузка... Ожидайте</p>
     </div>
   );
+  const openPopup = (url) => {
+    setSelectedImage(url);
+  };
+
+  const closePopup = () => {
+    setSelectedImage(null);
+  };
   return (
       <>
       {loading ? (
@@ -265,6 +274,7 @@ if (filesDeleted) {
             <img
               src={url}
               alt={`Gallery Image ${index + 1}`}
+              onClick={() => openPopup(url)}
               className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity duration-200"
 	      onError={handleImageError}
             />
@@ -290,6 +300,22 @@ if (filesDeleted) {
           Узнать больше
         </button>
       </section>
+      <Modal
+            isOpen={!!selectedImage}
+            onRequestClose={closePopup}
+            contentLabel="Image Popup"
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
+          >
+            <div className="relative">
+              <img src={selectedImage} alt="Popup" className="max-w-full max-h-full rounded" />
+              <button
+                onClick={closePopup}
+                className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full"
+              >
+                Close
+              </button>
+            </div>
+          </Modal>
       {/* Footer */}
       <footer className="w-full p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-center">
         <p className="text-sm">Powered by X | Secure & Anonymous Storage</p>
