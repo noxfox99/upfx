@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<UploadService />} />
-        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/gallery/:bunkerId" element={<GalleryPage />} />
         <Route path="/doc" element={<Doc />} />
         <Route path="/read" element={<ReadPage />} />
       </Routes>
