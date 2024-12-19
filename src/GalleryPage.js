@@ -1,6 +1,6 @@
 // GalleryPage.js
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams} from 'react-router-dom';
 import { PinataSDK } from "pinata";
 import Modal from 'react-modal';
 
@@ -12,6 +12,7 @@ const pinata = new PinataSDK({
 });
 //bafkreifye7mrysnirozj3yvho3xrhtjrrl26jxn5f6lmpcjedsjm3k7gee
 const GalleryPage = () => {
+  const { bunkerId } = useParams();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const jsonUrl = params.get('x');
@@ -82,7 +83,7 @@ const deleteFilesWithDelay = async (ids, delay) => {
       try {
         //setLoadingx(true);
         console.log('start');
-        console.log(jsonUrl)
+        console.log(bunkerId)
       //  const { dataz, contentTypex } = await pinata.gateways.get(jsonUrl);
         console.log('xxxxx');
       //  console.log(dataz);
@@ -90,7 +91,7 @@ const deleteFilesWithDelay = async (ids, delay) => {
 
         //const datac = await pinata.gateways.get("bafkreibm6jg3ux5qumhcn2b3flc3tyu6dmlb4xa7u5bf44yegnrjhc4yeq");
       const urlx = await pinata.gateways.createSignedURL({
-  cid: jsonUrl,
+  cid: bunkerId,
   expires: 3000, // Number of seconds link is valid for
 });
 
