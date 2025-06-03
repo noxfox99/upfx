@@ -255,15 +255,13 @@ const handleUpload = async () => {
   <div className="flex flex-1 justify-center items-center">
     {/* "PhotoBunker" as a button-like text */}
     <a href="/">
-  <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
-    
+     
     {/* Replace "X" with your PNG logo */}
     <img
       src="logo.png" // <-- Update this path
       alt="PhotoBunker"
       className="h-8 w-auto" // Adjust size as needed
     />
-  </div>
 </a>
   </div>
 
