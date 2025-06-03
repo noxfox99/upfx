@@ -255,24 +255,16 @@ const handleUpload = async () => {
   <div className="flex flex-1 justify-center items-center">
     {/* "PhotoBunker" as a button-like text */}
     <a href="/">
-      <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
-        <span className="text-2xl font-semibold">X</span>
-        {/* Upload Icon SVG */}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 40 20"
-          fill="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            fillRule="evenodd"
-            d="M10 3a1 1 0 011 1v6.586l3.707-3.707a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L9 10.586V4a1 1 0 011-1z"
-            clipRule="evenodd"
-          />
-          <path d="M10 13a7 7 0 100-14 7 7 0 000 14z" />
-        </svg>
-      </div>
-    </a>
+  <div className="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:opacity-75">
+    
+    {/* Replace "X" with your PNG logo */}
+    <img
+      src="logo.png" // <-- Update this path
+      alt="PhotoBunker"
+      className="h-8 w-auto" // Adjust size as needed
+    />
+  </div>
+</a>
   </div>
 
   {/* Right-aligned Telegram SVG */}
